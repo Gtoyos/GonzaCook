@@ -143,7 +143,7 @@ function buyKart(){
         ".";
     }
     //window.location.href = txt;
-	window.open(txt, '_blank').focus();
+	window.open(txt+"&phone=598092452842", '_blank').focus();
 }
 
 function seeKart(){
