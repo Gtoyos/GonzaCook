@@ -116,7 +116,7 @@
             </div>
         </div>
         
-		<a href="<%=request.getContextPath()%>#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>
+		<a id="btca" href="<%=request.getContextPath()%>/#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>
 		
         <jsp:include page="/template/footer.jsp"/>
     </body>
