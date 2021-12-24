@@ -1,8 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>">
+        <a class="navbar-brand" href="<%=request.getContextPath()%>/">
           <img src="<%=request.getContextPath()%>/assets/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +15,10 @@
                     <a id="nav-item-kart" href="javascript:seeKart()"><b>Mi carrito 🛒</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%=request.getContextPath()%>">Home</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%=request.getContextPath()%>#misp">Catálogo Web</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/#misp">Catálogo Web</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/assets/carta.jpg">Carta</a>
