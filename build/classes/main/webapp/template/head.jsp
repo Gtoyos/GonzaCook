@@ -10,3 +10,6 @@
 <link href="<%=request.getContextPath()%>/assets/logo.ico" rel="icon" type="image/x-icon" />
 <link href="<%=request.getContextPath()%>/assets/logo.ico" rel="shortcut icon" />
 <title>GonzaCook</title>
+<meta name="author" content="Gtoyos">
+<meta name="description" content="Cocina casera por gonzacook. Haz tus encargos aquí y conocé mi menú.">
+<meta name="keywords" content="Cocina, Galletas, Panes, Cocina Casera, Comprar galletas, Comida, Tienda Uruguay">
