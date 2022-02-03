@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a id="nav-item-kart" href="javascript:seeKart()"><b>Mi carrito 🛒</b></a>
+                    <a class="nav-link nav-item-kart" href="javascript:seeKart()"><b>Mi carrito 🛒</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
@@ -24,7 +24,7 @@
                     <a class="nav-link" href="<%=request.getContextPath()%>/assets/carta.jpg">Carta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%=request.getContextPath()%>/gonza">Sobre mi</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/#sobremi">Sobre mi</a>
                 </li>
             </ul>
         </div>
@@ -56,7 +56,7 @@
                     <div class="modal-footer">
                         <hr class="my-6">
                         <div>
-                            <i>Al confirmar el encargo  del carrito, se genrará un mensaje el cual se enviará por WhatsApp® a GonzaCook. Para ello debe tener WhatsApp® instalado en su dispositivo.</i>
+                            <i>Al confirmar el encargo del carrito, se generará un mensaje el cual se enviará por WhatsApp® a GonzaCook. Para ello debe tener WhatsApp® instalado en su dispositivo.</i>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="modal-footer">
                         <hr class="my-6">
                         <div>
-                            <i>Al confirmar el encargo del carrito, se genrará un mensaje el cual se enviará por WhatsApp® a GonzaCook. Para ello debe tener WhatsApp® instalado en su dispositivo.</i>
+                            <i>Al confirmar el encargo del carrito, se generará un mensaje el cual se enviará por WhatsApp® a GonzaCook. Para ello debe tener WhatsApp® instalado en su dispositivo.</i>
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                     <div class="modal-footer">
                         <hr class="my-6">
                         <div>
-                            <i>Al confirmar el encargo del carrito, se genrará un mensaje el cual se enviará por WhatsApp® a GonzaCook. Para ello debe tener WhatsApp® instalado en su dispositivo.</i>
+                            <i>Al confirmar el encargo del carrito, se generará un mensaje el cual se enviará por WhatsApp® a GonzaCook. Para ello debe tener WhatsApp® instalado en su dispositivo.</i>
                         </div>
                     </div>
                 </div>

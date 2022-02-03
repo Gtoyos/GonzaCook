@@ -19,7 +19,7 @@
 		        <div class="row justify-content-center">
 		            <div class="col-md-12 text-center">
 		                <span class="display-1 d-block">404</span>
-		                <div class="mb-4 lead">La pagina que usted ha tratado de acceder no existe</div>
+		                <div class="mb-4 lead">La pagina que usted ha tratado de acceder no existe o no se encuentra disponible</div>
 		                 <a href="<%=request.getContextPath()%>/home" class="link-dark">Volver al inicio</a>
 		            </div>
 		        </div>

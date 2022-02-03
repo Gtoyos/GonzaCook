@@ -15,9 +15,9 @@
 	            </div>
 	            <div class="carousel-inner">
 	                <div class="carousel-item active" data-bs-interval="10000">
-	                    <img src="<%=request.getContextPath()%>/assets/pan-hamburguesa.jpg" class="jimg d-block w-100" alt="...">
+	                    <img src="<%=request.getContextPath()%>/assets/galletas-manteca.jpg" class="jimg d-block w-100" alt="...">
 	                    <div class="carousel-caption d-block">
-	                        <h5 class="carrousel-item-title" >Pan para Hamburguesas Con Semillas</h5>
+	                        <h5 class="carrousel-item-title" >Galletas de manteca (Ilustración)</h5>
 	                    </div>
 	                </div>
 	            </div>
@@ -32,22 +32,26 @@
 	        </div>
 		</div>
         <div class="prod-name">
-            <h1>Panes Para Hamburguesas</h1>
+            <h1>Cookies de Manteca</h1>
         </div>
-        <p id="prod-code" style="display:none;">panh</p>
+        <p id="prod-code" style="display:none;">gmanteca</p>
 
         <div id="prices">
             <p>1 docena $180
-                ½ docena $110
+                ½ docena $120
             </p>
         </div>
 
+        <h4 class="prod-name" >Base</h4>
+        <div class="d-flex justify-content-center flex-wrap">
+        	<button id="base-chocolate" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chocolate</button>
+            <button id="base-vainilla" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Vainilla</button>
+        </div>
         <h4 class="prod-name">Toppings</h4>
         <div class="d-flex justify-content-center flex-wrap">
-            <button id="top-sesamo" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Sésamo</button>
-            <button id="top-chia" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chía</button>
-            <button id="top-lino" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Lino</button>
-            <button id="top-mixsemillas" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Mix de Semillas</button>
+            <button id="top-choco" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chocolate Negro</button>
+            <button id="top-chocob" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chocolate Blanco</button>
+            <button id="top-coco" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Coco Rallado</button>
         </div>
 
         <div class="block-compras d-grid gap-2">
@@ -56,9 +60,11 @@
         </div>
         
         <div id="presentation">
-            <p> Al cocinar unas buenas hamburguesas o sándwiches, es tan importante el contenido como el pan que lo contiene. Estos panes esponjosos de corteza ligeramente crujiente,
-             son sabrosos y aromáticos, es un excelente pan para vuestras hamburguesas caseras.</p>
-
+            <p> 
+			Hay pocos manjares mejores que unas dulces y suaves galletitas de manteca. Si bien a muchas personas les asusta la palabra manteca, unas ricas galletitas de manteca caseras
+			 es una alternativa mucho más saludable que esas que terminás siempre comprando por apuro en el supermercado y que, esas sí, están llenas de aditivos y forman parte de los alimentos restringidos en las guías alimentarias. 
+            Hechas con ingredientes frescos, las galletas de manteca son un éxito garantizado para la hora del té o una merienda con amigos. 
+             </p>
         </div>
 
         <div class="accordion" id="accordionExample">
@@ -70,8 +76,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Se puede consumir caliente o frío. Para lo primero, precalentar el horno a 180°C y calentar durante 10 minutos.
-                         Alternativamente, se puede calentar en la tostadora o grill. Consumir preferentemente no más de siete dias tras haber recibido el producto.
+                        Prontas para consumir! Consumir preferentemente no más de siete dias tras haber recibido el producto.
                     </div>
                 </div>
             </div>
@@ -83,13 +88,15 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Harina, levadura, aceita, sal, yema de huevo y semillas a elección.
+                        Las galletas de manteca contienen harina, manteca, azucar, vainilla y polvo de hornear. Adicionalmente puede incluir cacao y los distintos ingredientes para el topping seleccionado.
                     </div>
                 </div>
             </div>
 			<jsp:include page="/template/envios.jsp"/>
         </div>
+        
 		<a id="btca" href="<%=request.getContextPath()%>/#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>
+		
         <jsp:include page="/template/footer.jsp"/>
     </body>
 </html>

@@ -56,7 +56,9 @@
         </div>
         
         <div id="presentation">
-            <p> Aquí va una descripcion de los panes rellenos. Que ricos que son!!! Lorem ipisum dolor sit amet. Qual nostra un movitum avec son dominus ameno tranta dominum</p>
+            <p> De textura crocante por arriba, suave por dentro y rebozado con distintas semillas, los panes rellenos son un aperitivo sumamente delicioso para acompañar las comidas o degustar en una merienda o desayuno.
+           Te invito a probar mi versión clásica de jamón y queso u otras variantes más modernas como queso cheddar y panceta.
+           </p>
         </div>
 
         <div class="accordion" id="accordionExample">
@@ -68,7 +70,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Precalentar el horno a 180°C y calentar durante 10 minutos. Se recomienda consumir antes de una semana de recibido el producto.
+                        Precalentar el horno a 180°C y calentar durante 10 minutos. Consumir preferentemente no más de siete dias tras haber recibido el producto.
                     </div>
                 </div>
             </div>
@@ -80,22 +82,11 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Las panes rellenos contienen avena, agua, huevos, ... escribir todos los ingredientes!
+                        Las panes rellenos contienen manteca, aceite, levadura, sal, semillas y el relleno a elección.
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        🚚 Envíos
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>Política de envíos.</strong> Envío gratuito a todo montevideo para pedidos mayores a $400.
-                    </div>
-                </div>
-            </div>
+			<jsp:include page="/template/envios.jsp"/>
         </div>
 		<a id="btca" href="<%=request.getContextPath()%>/#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>
         <jsp:include page="/template/footer.jsp"/>

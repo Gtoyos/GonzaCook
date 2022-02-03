@@ -46,7 +46,7 @@
 	        </div>
 		</div>
         <div class="prod-name">
-            <h1>Galletas Americanas</h1>
+            <h1>Cookies Americanas</h1>
         </div>
         <p id="prod-code" style="display:none;">gamericanas</p>
 
@@ -74,7 +74,11 @@
         </div>
         
         <div id="presentation">
-            <p> Aquí va una descripcion de las galletas americanas. Que ricas que son!!! Lorem ipisum dolor sit amet. Qual nostra un movitum avec son dominus ameno tranta dominum</p>
+            <p> 
+            Las cookies americanas son el dulce perfecto para acompañar una deliciosa merienda o desayuno. Grandes e irregulares, un par de cookies americanas son suficientes para quedar satisfecho. Te invito a probar 
+            mi versión clásica de base de vainilla con chips de chocolate o con un topping más atrevido como coco rallado. ¡Espero que lo disfrutéis!
+
+             </p>
         </div>
 
         <div class="accordion" id="accordionExample">
@@ -86,7 +90,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Prontas para consumir! Se recomienda consumir antes de una semana de recibido el producto.
+                        Prontas para consumir! Consumir preferentemente no más de siete dias tras haber recibido el producto.
                     </div>
                 </div>
             </div>
@@ -98,22 +102,11 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Las galletas americanas contienen harina, huevos, manteca, vainilla, ... escribir todos los ingredientes!
+                        Las galletas americanas contienen harina, manteca, azucar, vainilla, polvo de hornear y aceite. Adicionalmente puede incluir cacao y los distintos ingredientes para el topping seleccionado.
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        🚚 Envíos
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>Política de envíos.</strong> Envío gratuito a todo montevideo para pedidos mayores a $400.
-                    </div>
-                </div>
-            </div>
+			<jsp:include page="/template/envios.jsp"/>
         </div>
         
 		<a id="btca" href="<%=request.getContextPath()%>/#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>

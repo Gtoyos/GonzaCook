@@ -39,7 +39,7 @@
 	        </div>
 		</div>
         <div class="prod-name">
-            <h1>Galletas de Avena</h1>
+            <h1>Cookies de Avena</h1>
         </div>
         <p id="prod-code" style="display:none;">gavena</p>
 
@@ -63,7 +63,10 @@
         </div>
         
         <div id="presentation">
-            <p> Aquí va una descripcion de las galletas de avena. Que ricas que son!!! Lorem ipisum dolor sit amet. Qual nostra un movitum avec son dominus ameno tranta dominum</p>
+            <p> Las cookies de avena son una excelente opción para degustar acompañadas de un buen café o chocolate caliente. Esta receta es ideal no solo para los fanáticos de la avena sino también para
+            aquellos que buscan snacks saludables, ricos y caseros en su dieta. Hechas con harina integral y azúcar rubia, las galletas de avena son una opción más saludable que otras recetas de galletas.
+            </p>
+
         </div>
 
         <div class="accordion" id="accordionExample">
@@ -75,7 +78,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Prontas para consumir! Se recomienda consumir antes de una semana de recibido el producto.
+                         Prontas para consumir! Consumir preferentemente no más de siete dias tras haber recibido el producto.
                     </div>
                 </div>
             </div>
@@ -87,22 +90,11 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        Las galletas de avena contienen avena, agua, huevos, vainilla, ... escribir todos los ingredientes!
+                        Las galletas de avena contienen azucar rubia, avena, harina integral, manteca, huevos y sal.
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        🚚 Envíos
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>Política de envíos.</strong> Envío gratuito a todo montevideo para pedidos mayores a $400.
-                    </div>
-                </div>
-            </div>
+			<jsp:include page="/template/envios.jsp"/>
         </div>
 		<a id="btca" href="<%=request.getContextPath()%>/#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>
         <jsp:include page="/template/footer.jsp"/>

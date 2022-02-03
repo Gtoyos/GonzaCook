@@ -16,11 +16,10 @@
         </div>
 
         <div id="presentation">
-            "Muchas gracias por visitar mi pagina. En 2021 decidí comenzar mi pequeño emprendimiento de cocina, y aqui Gonza tiene que pensar cosas inteligentes para escribir... 😂🤣🤣.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula laoreet nisl eu auctor.
-             Aliquam viverra nunc vitae nunc convallis, interdum commodo nisi volutpat. Curabitur odio felis, convallis et nisi eget,
-              pellentesque porta leo. Integer varius sem vel interdum maximus. Suspendisse elementum placerat egestas. Morbi ornare est diam, 
-              sed pretium lacus ultrices ac."
+           Muchas gracias por visitar mi página. En 2021 decidí iniciar mi pequeño emprendimiento de cocina, comencé vendiendo galletas de avena con gran éxito y a
+            lo largo de los meses he ido ampliando mis productos siempre teniendo en cuenta la calidad de la materia prima y la opinión de mis clientes.
+            
+            Te invito a que me dejes tus comentarios, consultas o cualquier inquietud que tengas en mis redes sociales. Me será un gran gusto poder responderte.
         </div>
 
         <jsp:include page="/template/footer.jsp"/>
