@@ -52,12 +52,12 @@ body {
 
 #misp {
     text-align: center;
-    font-family: 'Lucida Handwriting';
+    font-family: 'Lucida Handwriting',cursive;
     margin-bottom: 2rem;
 }
 #sobremi {
     text-align: center;
-    font-family: 'Lucida Handwriting';
+    font-family: 'Lucida Handwriting',cursive;
     margin-bottom: 2rem;
     border-style: solid hidden hidden hidden;
     border-width: 0.2rem;
