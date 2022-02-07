@@ -15,8 +15,8 @@
 
         <div id="presentation">
             Bienvenido al sitio web de GonzaCook. Desde aquí podrás acceder a toda la información de mis productos, conocer mi propuesta, hacer encargos y muchas cosas más.
-            Gonzacook.com cuenta con un carrito virtual para armar tu pedido, selecciona los productos del catálogo para agregarlos a tu carrito. El mismo puede accederse desde el menú superior. Al confirmar la compra
-            se generará el cual podrás enviar a Gonzacook.
+            Gonzacook.com cuenta con un carrito virtual para armar tu pedido, selecciona los productos del catálogo para agregarlos a tu carrito. El mismo puede accederse desde el menú superior.
+            Al confirmar la compra se generará un mensaje el cual podrás enviar a Gonzacook.
 
         </div>
 		<p id="prod-code" style="display:none;">none</p>
