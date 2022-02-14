@@ -5,7 +5,7 @@
             <a href="<%=request.getContextPath()%>" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <img src="<%=request.getContextPath()%>/assets/logo.png">
             </a>
-            <span class="text-muted">© 2021 GonzaCook</span>
+            <span class="text-muted">© 2022 GonzaCook</span>
         </div>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex social-list">
             <li class="ms-3"><a class="text-muted" href="https://wa.me/598092452842"><i class="fab fa-whatsapp"></i></a></li>
