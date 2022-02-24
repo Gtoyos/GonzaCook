@@ -59,11 +59,11 @@ function addToCarrito(elem){
         ((topping!=="DISABLED") ? "\nTopping: "+p[topping] :"");
 	if(item==="panrelleno"){
 		document.getElementById("cantlbl").textContent = "Cantidad de Unidades";
-		document.getElementById("cant").pattern = "^[0-9]*$"
+		document.getElementById("cant").pattern = "^[1-9][0-9]*$"
 		document.getElementById("mediadocenaindi").style.display = "none";
 	}else{
 		document.getElementById("cantlbl").textContent = "Cantidad de Docenas";
-		document.getElementById("cant").pattern = "^[0-9]*(\.5){0,1}$"
+		document.getElementById("cant").pattern = "^((0\.5)|([1-9][0-9]*(\.5){0,1}))$"
 		document.getElementById("mediadocenaindi").style.display = "block";
 	}
     carritoModal.toggle();
@@ -83,11 +83,11 @@ function buybuy(elem){
 	if(item==="panrelleno"){
 		document.getElementById("cantBlbl").textContent = "Cantidad de Unidades";
 		document.getElementById("mediadocenaindiB").style.display = "none";
-		document.getElementById("cantB").pattern = "^[0-9]*$"
+		document.getElementById("cantB").pattern = "^[1-9][0-9]*$";
 	}else{
 		document.getElementById("cantBlbl").textContent = "Cantidad de Docenas";
 		document.getElementById("mediadocenaindiB").style.display = "block";
-		document.getElementById("cantB").pattern = "^[0-9]*(\.5){0,1}$"
+		document.getElementById("cantB").pattern = "^((0\.5)|([1-9][0-9]*(\.5){0,1}))$"
 	}
     myModal.toggle();
 }
