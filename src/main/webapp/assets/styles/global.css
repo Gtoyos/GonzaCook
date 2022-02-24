@@ -114,6 +114,9 @@ body {
     .card-columns {
         column-count: 4;
     }
+    body {
+    	margin: 0 15rem 0 15rem;
+    }
 }
 
 .modal-content {

@@ -1,5 +1,5 @@
 p={"choco":"Chips de Chocolate Negro", "chocob":"Chips de Chocolate Blanco", "coco":"Chips de Coco", "chocolate":"Chocolate", "vainilla":"Vainilla",
-    "nueces":"Nueces","pasas":"Pasas de Uva","cran":"Cranberries","capresse":"Capresse","qyl":"Queso y Longaniza","qycb":"Queso y Cebolla",
+    "nueces":"Nueces","pasas":"Pasas de Uva","cran":"Cranberries","capresse":"Capresse","qyl":"Queso y Longaniza","qycb":"Queso y Cebolla", "cyp":"Cheddar y Panceta",
 	"qaym":"Queso, Aceitunas y Morrón","jyq":"Jamón y Queso","sesamo":"Sésamo","chia":"Chía","lino":"Lino","mixsemillas":"Mix de Semillas",
     "gamericanas":"Galletas Americanas", "panrelleno": "Pan Relleno", "panh":"Pan para Hamburguesas","gavena":"Galletas de Avena","gmanteca":"Galletas de manteca"};
 

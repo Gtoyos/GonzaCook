@@ -48,6 +48,7 @@
             <button id="base-qycb" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Queso y Cebolla</button>
             <button id="base-qaym" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Queso, Aceitunas y Morrón</button>
             <button id="base-jyq" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Jamón y Queso</button>
+            <button id="base-cyp" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Cheddar y Panceta</button>
         </div>
 
         <div class="block-compras d-grid gap-2">
