@@ -37,8 +37,8 @@
         <p id="prod-code" style="display:none;">gmanteca</p>
 
         <div id="prices">
-            <p>1 docena $180
-                ½ docena $120
+            <p>1 docena $150
+                ½ docena $80
             </p>
         </div>
 

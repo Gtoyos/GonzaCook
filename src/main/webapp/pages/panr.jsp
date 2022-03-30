@@ -37,7 +37,7 @@
         <p id="prod-code" style="display:none;">panrelleno</p>
 
         <div id="prices">
-            <p>1 unidad $180
+            <p>1 unidad $400
             </p>
         </div>
 
@@ -53,7 +53,7 @@
 
         <div class="block-compras d-grid gap-2">
             <button id="btn-carrito" class="btn btn-light" type="button" onclick="addToCarrito(this)" >Agregar al carrito</button>
-            <button id="btn-comprar" class="btn btn-light" type="button" onclick="buybuy(this)"">Encargar</button>
+            <button id="btn-comprar" class="btn btn-light" type="button" onclick="buybuy(this)" >Encargar</button>
         </div>
         
         <div id="presentation">

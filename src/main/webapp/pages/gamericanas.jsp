@@ -51,8 +51,8 @@
         <p id="prod-code" style="display:none;">gamericanas</p>
 
         <div id="prices">
-            <p>1 docena $180
-                ½ docena $120
+            <p>1 docena $290
+                ½ docena $170
             </p>
         </div>
 

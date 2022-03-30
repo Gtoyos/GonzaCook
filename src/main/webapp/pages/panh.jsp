@@ -37,8 +37,8 @@
         <p id="prod-code" style="display:none;">panh</p>
 
         <div id="prices">
-            <p>1 docena $180
-                ½ docena $110
+            <p>1 docena $120
+                ½ docena $80
             </p>
         </div>
 

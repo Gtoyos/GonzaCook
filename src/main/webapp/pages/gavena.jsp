@@ -44,8 +44,8 @@
         <p id="prod-code" style="display:none;">gavena</p>
 
         <div id="prices">
-            <p>1 docena $150
-                ½ docena $100
+            <p>1 docena $190
+                ½ docena $110
             </p>
         </div>
 
