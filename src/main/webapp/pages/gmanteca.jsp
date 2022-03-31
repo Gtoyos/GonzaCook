@@ -42,18 +42,6 @@
             </p>
         </div>
 
-        <h4 class="prod-name" >Base</h4>
-        <div class="d-flex justify-content-center flex-wrap">
-        	<button id="base-chocolate" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chocolate</button>
-            <button id="base-vainilla" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Vainilla</button>
-        </div>
-        <h4 class="prod-name">Toppings</h4>
-        <div class="d-flex justify-content-center flex-wrap">
-            <button id="top-choco" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chocolate Negro</button>
-            <button id="top-chocob" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Chocolate Blanco</button>
-            <button id="top-coco" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Coco Rallado</button>
-        </div>
-
         <div class="block-compras d-grid gap-2">
            <button id="btn-carrito" class="btn btn-light" type="button" onclick="addToCarrito(this)" required>Agregar al carrito</button>
             <button id="btn-comprar" class="btn btn-light" type="button" onclick="buybuy(this)" required>Encargar</button>

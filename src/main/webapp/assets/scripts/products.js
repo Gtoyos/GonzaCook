@@ -7,8 +7,8 @@ pr={"gamericanas12":290,"gamericanas6":170,"gavena6":110,"gavena12":190,"panh6":
 kart = window.localStorage;
 
 item=document.getElementById("prod-code").textContent;
-base = (item==="gavena" || item==="panh") ? "DISABLED" : "none";
-topping = (item==="panrelleno") ? "DISABLED":"none";
+base = (item==="gavena" || item==="panh" || item=="gmanteca") ? "DISABLED" : "none";
+topping = (item==="panrelleno" || item=="gmanteca") ? "DISABLED":"none";
 
 carritoModal=null;
 kartmodal=null;
