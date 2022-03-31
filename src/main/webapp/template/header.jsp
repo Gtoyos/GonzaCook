@@ -42,7 +42,7 @@
                         <p class="resumee" id="slx">Su selección:</p>
                         <form action="#">
                             <div class="form-floating mb-2">
-                                <input id="cant" pattern="^((0\.5)|([1-9][0-9]*(\.5){0,1}))$" class="form-control rounded-4" name="cant">
+                                <input id="cant" pattern="^((0\.5)|([1-9][0-9]*(\.5){0,1}))$" class="form-control rounded-4" name="cant" required>
                                 <label id="cantlbl" for="cant">Cantidad de docenas</label>     
                                 <i id="mediadocenaindi">(escriba .5 para indicar media)</i>
                             </div>
