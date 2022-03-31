@@ -32,13 +32,13 @@
 	        </div>
 		</div>
         <div class="prod-name">
-            <h1>Cookies de Manteca</h1>
+            <h1>Galletitas de Manteca</h1>
         </div>
         <p id="prod-code" style="display:none;">gmanteca</p>
 
         <div id="prices">
-            <p>1 docena $150
-                ½ docena $80
+            <p>1 docena $100
+                ½ docena $60
             </p>
         </div>
 

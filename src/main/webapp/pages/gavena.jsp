@@ -46,6 +46,7 @@
         <div id="prices">
             <p>1 docena $190
                 ½ docena $110
+                1 unidad $20
             </p>
         </div>
 

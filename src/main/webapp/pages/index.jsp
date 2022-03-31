@@ -45,7 +45,7 @@
                 <a class="prodlink" href="<%=request.getContextPath()%>/productos/galletas-manteca">
                     <img src="<%=request.getContextPath()%>/assets/galletas-manteca.jpg" class="card-img-top" alt="Galletas de manteca">
                     <div class="card-body">
-                        <h5 class="card-title">Cookies de Manteca</h5>
+                        <h5 class="card-title">Galletitas de Manteca</h5>
                     </div>
                 </a>
             </div>

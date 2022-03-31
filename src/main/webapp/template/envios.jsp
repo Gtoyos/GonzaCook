@@ -9,7 +9,7 @@
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            <strong>Política de envíos.</strong> Envío gratuito a todo montevideo para pedidos mayores a $500.
+            <strong>Política de envíos.</strong> Envío gratuito a todo Montevideo para pedidos mayores a $500.
         </div>
     </div>
 </div>
