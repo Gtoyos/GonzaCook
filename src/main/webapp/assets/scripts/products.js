@@ -3,7 +3,7 @@ p={"choco":"Chips de Chocolate Negro", "chocob":"Chips de Chocolate Blanco", "co
 	"qaym":"Queso, Aceitunas y Morrón","jyq":"Jamón y Queso","sesamo":"Sésamo","chia":"Chía","lino":"Lino","mixsemillas":"Mix de Semillas",
     "gamericanas":"Galletas Americanas", "panrelleno": "Pan Relleno", "panh":"Pan para Hamburguesas","gavena":"Galletas de Avena","gmanteca":"Galletas de manteca"};
 
-pr={"gamericanas12":290,"gamericanas6":170,"gavena6":110,"gavena12":190,"panh6":80,"panh12":140,"panrelleno":400,"gmanteca6":150,"gmanteca12":80}
+pr={"gamericanas12":250,"gamericanas6":140,"gavena6":110,"gavena12":190,"panh6":80,"panh12":120,"panrelleno":400,"gmanteca6":100,"gmanteca12":60}
 kart = window.localStorage;
 
 item=document.getElementById("prod-code").textContent;
