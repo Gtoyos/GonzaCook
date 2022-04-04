@@ -12,10 +12,24 @@
 	        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 	            <div class="carousel-indicators">
 	                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+	                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+	                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
 	            </div>
 	            <div class="carousel-inner">
-	                <div class="carousel-item active" data-bs-interval="10000">
-	                    <img src="<%=request.getContextPath()%>/assets/panrelleno.jpg" class="jimg d-block w-100" alt="...">
+	                <div class="carousel-item active" data-bs-interval="4000">
+	                    <img src="<%=request.getContextPath()%>/assets/panrelleno1.jpg" class="jimg d-block w-100" alt="...">
+	                    <div class="carousel-caption d-block">
+	                        <h5 class="carrousel-item-title" >Pan Relleno de Queso y Longaniza</h5>
+	                    </div>
+	                </div>
+	                <div class="carousel-item" data-bs-interval="4000">
+	                    <img src="<%=request.getContextPath()%>/assets/panrelleno2.jpg" class="jimg d-block w-100" alt="...">
+	                    <div class="carousel-caption d-block">
+	                        <h5 class="carrousel-item-title" >Galletas Americanas de Queso y Aceitunas</h5>
+	                    </div>
+	                </div>
+	                <div class="carousel-item" data-bs-interval="4000">
+	                    <img src="<%=request.getContextPath()%>/assets/panrelleno3.jpg" class="jimg d-block w-100" alt="...">
 	                    <div class="carousel-caption d-block">
 	                        <h5 class="carrousel-item-title" >Pan Relleno de Jamón y Queso</h5>
 	                    </div>
@@ -37,8 +51,9 @@
         <p id="prod-code" style="display:none;">panrelleno</p>
 
         <div id="prices">
-            <p>1 unidad $400
+            <p>1 unidad $350
             </p>
+            <i>Nota: Los panes rellenos pesan aproximadamente 800 gramos.</i>
         </div>
 
         <h4 class="prod-name">Rellenos</h4>
@@ -46,7 +61,7 @@
             <button id="base-capresse" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Capresse</button>
             <button id="base-qyl" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Queso y Longaniza</button>
             <button id="base-qycb" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Queso y Cebolla</button>
-            <button id="base-qaym" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Queso, Aceitunas y Morrón</button>
+            <button id="base-qaym" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Queso y Aceitunas</button>
             <button id="base-jyq" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Jamón y Queso</button>
             <button id="base-cyp" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">Cheddar y Panceta</button>
         </div>

@@ -59,7 +59,7 @@
             </div>     
             <div class="card">
                 <a class="prodlink" href="<%=request.getContextPath()%>/productos/pan-relleno">
-                    <img src="<%=request.getContextPath()%>/assets/panrelleno.jpg" class="card-img-top" alt="Panes rellenos">
+                    <img src="<%=request.getContextPath()%>/assets/panrelleno1.jpg" class="card-img-top" alt="Panes rellenos">
                     <div class="card-body">
                         <h5 class="card-title">Panes Rellenos</h5>
                     </div>

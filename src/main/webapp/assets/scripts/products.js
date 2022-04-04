@@ -1,6 +1,6 @@
 p={"choco":"Chips de Chocolate Negro", "chocob":"Chips de Chocolate Blanco", "coco":"Chips de Coco", "chocolate":"Chocolate", "vainilla":"Vainilla",
     "nueces":"Nueces","pasas":"Pasas de Uva","cran":"Cranberries","capresse":"Capresse","qyl":"Queso y Longaniza","qycb":"Queso y Cebolla", "cyp":"Cheddar y Panceta",
-	"qaym":"Queso, Aceitunas y Morrón","jyq":"Jamón y Queso","sesamo":"Sésamo","chia":"Chía","lino":"Lino","mixsemillas":"Mix de Semillas",
+	"qaym":"Queso y Aceitunas","jyq":"Jamón y Queso","sesamo":"Sésamo","chia":"Chía","lino":"Lino","mixsemillas":"Mix de Semillas",
     "gamericanas":"Galletas Americanas", "panrelleno": "Pan Relleno", "panh":"Pan para Hamburguesas","gavena":"Galletas de Avena","gmanteca":"Galletas de manteca"};
 
 pr={"gamericanas12":250,"gamericanas6":140,"gavena6":110,"gavena12":190,"panh6":80,"panh12":120,"panrelleno":400,"gmanteca6":100,"gmanteca12":60}
