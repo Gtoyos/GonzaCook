@@ -25,7 +25,7 @@
 	                <div class="carousel-item" data-bs-interval="4000">
 	                    <img src="<%=request.getContextPath()%>/assets/panrelleno2.jpg" class="jimg d-block w-100" alt="...">
 	                    <div class="carousel-caption d-block">
-	                        <h5 class="carrousel-item-title" >Galletas Americanas de Queso y Aceitunas</h5>
+	                        <h5 class="carrousel-item-title" >Pan Relleno de Queso y Aceitunas</h5>
 	                    </div>
 	                </div>
 	                <div class="carousel-item" data-bs-interval="4000">
