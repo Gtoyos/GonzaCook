@@ -1,0 +1,143 @@
+.carrousel-item-title {
+    color: black;
+    text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+}
+
+.jimg {
+    height: 25rem;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.carouselHolder {
+    border-width: 0.2rem;
+    margin: 0.5rem 0.5rem 2rem 0.5rem;
+}
+
+.galeria-img {
+    border-radius: 10px 10px 10px 10px;
+}
+
+@media (min-width: 700px) and (max-width: 1200px){
+	.carousel {
+		width: 60%;
+		margin: auto;
+	}
+}
+@media (min-width: 1201px){
+	.carousel {
+		width: 40%;
+		margin: auto;
+	}
+}
+.prod-name {
+    text-align: center;
+    margin: 0.5rem 0.5rem 2rem 0.5rem;
+    font-family: 'Fredoka One','Helvetica';
+}
+#prod-title {
+    font-size: 2rem;
+}
+
+#prices {
+    margin-top: -1rem;
+    white-space: pre-line;
+    font-style: italic;
+}
+
+.box-p {
+    border-style: solid;
+    border-color: #542323;
+    margin: 2rem 0.5rem 2rem 0.5rem;
+    padding: 1rem 1rem 0rem 1rem;
+    border-radius: 10px;
+}
+.prix-p {
+    line-height: 0.2rem;
+}
+#person {
+    text-align: center;
+    margin: 2rem 0.5rem 1rem 0.5rem;
+    font-weight: bold;
+}
+
+.botones{
+    margin: 1rem 0.5rem 1rem 0.5rem;
+}
+.btn-sabores {
+    background-color: #F3E5AB !important;
+    color:black !important;
+    border-color: black !important;
+    margin: 0.1rem 0.1rem 0.1rem 0.5rem;
+}
+
+.topping {
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+}
+
+.block-compras {
+    margin: 3rem 1rem 2rem 1rem;
+}
+
+#btn-carrito {
+    background-color: #0000;
+    border-color:black;
+}
+
+#btn-carrito:hover {
+    background-color: #F3E5AB;
+    border-color:black;
+}
+
+#btn-comprar {
+    background-color: #F3E5AB;
+    border-color: black;
+}
+
+.accordion {
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+}
+.accordion-item {
+    background-color: #fffcba !important;
+}
+
+.accordion-button {
+    background-color: #F3E5AB !important;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #fff9a0 !important;
+    color: black !important;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 .25rem #0000009d !important;
+}
+
+.resumee {
+    white-space: pre-line;
+    font-style: italic;
+    margin-left: 0.5rem;
+}
+
+#cant,#cantB {
+    background-color: #fff1a5 !important;
+    height: 2rem;
+    padding-bottom: 1rem;
+}
+#cantlbl {
+    margin-left: 8rem;
+}
+
+#list-p{
+    background-color: #fff1a5;
+}
+#backtocatalog {
+    margin: 2rem 0 1rem 1rem;
+    color: black;
+    font-family: 'Helvetica';
+}
+
+#btca {
+	text-decoration: none;
+}

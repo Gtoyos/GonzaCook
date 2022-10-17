@@ -1,0 +1,17 @@
+{# templates/base.html #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "templates/_head.html" %}
+  {% block head_extra %}
+  {% endblock head_extra %}
+</head>
+
+<body>
+  {% include "templates/_header.html" %}
+  {% block body %}
+  {% endblock body %}
+  {% include "templates/_footer.html" %}
+</body>
+</html>

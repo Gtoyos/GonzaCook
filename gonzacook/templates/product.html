@@ -1,0 +1,115 @@
+{# templates/product.html #}
+
+{% extends "base.html" %}
+
+{% block head_extra %}
+<link href="{{ url_for('static', filename='styles/products.css') }}" rel="stylesheet">
+{% endblock head_extra %}
+
+{% block body %}
+
+<div id="galeria-div" class="carouselHolder">
+    <div id="galeria-fotos" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#galeria-fotos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            {% for i in p.imgs %}
+            <button type="button" data-bs-target="#galeria-fotos" data-bs-slide-to="{{ loop.index }}" aria-label="Slide {{loop.index+1}}"></button>
+            {% endfor %}
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img src="{{ url_for('static', filename='media/productos/'+p.code+'-cover.jpg') }}" class="jimg d-block w-100" alt="...">
+            </div>
+            {% for ip in p.imgs %}
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ url_for('static', filename='media/productos/'+p.code+'/'+ip) }}" class="jimg d-block w-100" alt="...">
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galeria-fotos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galeria-fotos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+    </div>
+</div>
+
+
+<div class="prod-name">
+    <h1 id="prod-title">{{p.nombre}}</h1>
+</div>
+{% if p.precio.items() %}
+<div class="box-p" id="x" data-prix="{{p.precio}}">
+    {% for k,t in p.precio.items() %}
+    <p class="prix-p">
+    {% if k==1 %}La unidad: ${{t}},00{% endif %}
+    {% if k==6 %}Media docena: ${{t}},00{% endif %}
+    {% if k==12 %}Una docena: ${{t}},00{% endif %}
+    </p>
+    {% endfor %}
+</div>
+{% endif %}
+{% if p.custom.items() %}
+    <div id="person">
+    <h3>Personaliza tu producto!</h3>
+    </div>
+    <div id="custom_categories">
+{% endif %}
+{% for k,xs in p.custom.items() %}
+    <h4 class="topping">{{k}}</h4>
+    <div id="{{k.replace(" ","_")}}" class="botones d-flex justify-content-center flex-wrap">
+    {% for x in xs %}
+    <button id="{{k.replace(" ","_")}}-{{x.replace(" ","_")}}" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">{{x}}</button>
+    {% endfor %}
+    </div>
+{% endfor %}
+{% if p.custom.items() %}
+</div>
+{% endif %}
+
+{% if p.precio.items() %}
+<div class="block-compras d-grid gap-2">
+    <button id="btn-carrito" class="btn btn-light" type="button" onclick="addToCarrito(0)" required>Agregar al carrito</button>
+    <button id="btn-comprar" class="btn btn-light" type="button" onclick="addToCarrito(1)" required>Encargar</button>
+</div>
+{% endif %}
+<div id="presentation">
+    <p>{{p.desc}}</p>
+</div>
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                👨‍🍳 Consejos
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{p.consejos}}
+            </div>
+        </div>
+    </div>
+    {% if p.ingredientes %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                🥚 Ingredientes
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{p.ingredientes}}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <jsp:include page="/template/envios.jsp"/>
+</div>
+
+<a id="btca" href="{{g.rootpath}}/#misp"><h3 id="backtocatalog"><i class="fas fa-undo"></i> Regresar al catálogo</h3></a>
+
+{% endblock body %}

@@ -1,0 +1,20 @@
+{# templates/templates/_modal.html #}
+
+<div class="modal fade" id="{% block modal_id %}{% endblock modal_id %}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                {% block modal_head %}
+                {% endblock modal_head %}
+            </div>
+            <div class="modal-body">
+                {% block modal_body %}
+                {% endblock modal_body %}                
+            </div>
+            <div class="modal-footer">
+                {% block modal_foot %}
+                {% endblock modal_foot %} 
+            </div>
+        </div>
+    </div>
+</div>

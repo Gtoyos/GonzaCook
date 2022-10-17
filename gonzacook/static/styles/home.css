@@ -1,0 +1,27 @@
+.cursive-h1 {
+    text-align: center;
+    font-family: 'Tangerine','Lucida Handwriting',cursive !important;
+    margin-bottom: 2rem;
+    font-size: 5em;
+    font-weight: bold;
+}
+.cursive-h1-txt {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.tarjeta {
+    background-size: cover;
+    width: 100%;
+    position: relative;
+}
+.tarjeta:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+.tarjeta-t {
+    color: whitesmoke;
+    font-size: 1.55rem;
+    text-shadow: 2px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}

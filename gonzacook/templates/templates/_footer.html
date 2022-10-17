@@ -1,0 +1,19 @@
+{# pages/templates/_footer.html #}
+
+<footer id="footerg" class="d-flex flex-wrap justify-content-between align-items-center  border-top">
+    <div class="col-md-4 d-flex align-items-center">
+        <a href="{{g.rootpath}}" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <img src="{{ url_for('static', filename='media/logo.png') }}">
+        </a>
+        <span class="text-muted">© 2022 GonzaCook</span>
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex social-list">
+        <li class="ms-3"><a class="text-muted" href="https://wa.me/598092452842"><i class="fab fa-whatsapp"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/gonza_cook/"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+</footer>
+<footer id="credits-div">
+    <span id="credits" class="text-muted">Diseño, desarrollo y hosting: <a id="toyosdev" class=prodlink href="https://toyos.dev">toyos.dev</a></span>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='scripts/global.js') }}"></script>
