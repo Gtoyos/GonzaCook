@@ -68,13 +68,13 @@ def crearProductos():
     ### BROWNIES
     bro = Productos("bro")
     bro.nombre = "Brownies"
-    bro.desc = "El brownie perfecto debe sentirse compacto, levemente crocante en la superficie, extremadamente chocolatoso, y si bien es una masa densa, debe sentirse suave al morder. Esta receta de brownies es el postre perfecto para una merienda con amigos o una cena especial.\nLa torta brownie mide aproximadamente 20x30cm, unas 12 porciones."
+    bro.desc = "El brownie perfecto debe sentirse compacto, levemente crocante en la superficie, extremadamente chocolatoso, y si bien es una masa densa, debe sentirse suave al morder. Esta receta de brownies es el postre perfecto para una merienda con amigos o una cena especial.\nLa torta brownie mide aproximadamente 20x30cm, unas 12 porciones de 7x7cm."
     bro.precio = {1:330}
     bro.custom = {"Topping":["Nueces","Almendras"]}
     bro.ingredientes = "Chocolate, azúcar, manteca, huevos, harina, sal y frutos secos a elección."
     bro.consejos = "Precalentar el horno a 180°C y calentar durante 15 minutos. Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
-    ### BROWNIES
+    ### SCONES
     sco = Productos("sco")
     sco.nombre = "Scones de Queso"
     sco.desc = "Estos scones de queso con textura crocante por fuera y esponjosa por dentro son ideales acompañados de té o de tu bebida preferida, y perfectos para compartir."
