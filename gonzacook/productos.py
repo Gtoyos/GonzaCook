@@ -14,7 +14,7 @@ class Productos:
 
     def gen(self):
         rootp = "gonzacook/static/media/productos/"+self.code #CORREGIR!?
-        self.imgs = [f for f in os.listdir(rootp) if os.path.isfile(os.path.join(rootp, f))]
+        self.imgs = [f for f in os.listdir(rootp) if os.path.isfile(os.path.join(rootp, f)) and str(f)!=".gitkeep"]
         
 def crearProductos():
 
