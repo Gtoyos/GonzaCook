@@ -163,7 +163,7 @@ function toKart(mode=0){
             buyKart(dt)
         }
     }
-    return 1
+    //return 1
 }
 
 //Genera el mensaje de compra y lo envía a partir del carrito.
