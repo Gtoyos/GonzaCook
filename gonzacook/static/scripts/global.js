@@ -93,15 +93,7 @@ function addToCarrito(mode=0){
         document.getElementById("addkrtconf").textContent ="Comprar"
         document.getElementById("addkrtconfa").href = 'javascript:toKart(1)'
     }
-
-    //try get element, if fail get length 0
-    try {
-        var options = document.getElementById("custom_categories").children
-    }
-    catch(err) {
-        var options = []
-    }
-    
+    var options = document.getElementById("custom_categories").children
     var clist = []
     for(let i=0; i < options.length; i++){
         var x = options[i];
