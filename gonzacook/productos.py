@@ -69,7 +69,7 @@ def crearProductos():
     bro = Productos("bro")
     bro.nombre = "Brownies"
     bro.desc = "El brownie perfecto debe sentirse compacto, levemente crocante en la superficie, extremadamente chocolatoso, y si bien es una masa densa, debe sentirse suave al morder. Esta receta de brownies es el postre perfecto para una merienda con amigos o una cena especial.\nLa torta brownie mide aproximadamente 20x30cm, unas 12 porciones de 7x7cm."
-    bro.precio = {1:330}
+    bro.precio = {1:440}
     bro.custom = {"Topping":["Nueces","Almendras"]}
     bro.ingredientes = "Chocolate, azúcar, manteca, huevos, harina, sal y frutos secos a elección."
     bro.consejos = "Precalentar el horno a 180°C y calentar durante 15 minutos. Consumir preferentemente no más de siete dias tras haber recibido el producto."
@@ -82,7 +82,23 @@ def crearProductos():
     sco.ingredientes = "Harina, sal, leche, manteca, queso y mostaza."
     sco.consejos = "Se recomienda consumir calentitos: precalentar el horno a 180°C y calentar durante 15 minutos. Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
-    productos = [gam,gma,gav,gdi,pha,pre,bro,sco]
+    ### BUDIN NARANJA
+    bun = Productos("bun")
+    bun.nombre = "Budín de Naranja"
+    bun.desc = "Con una textura esponjosa y un sabor cítrico, el budín de naranja es un clásico de la repostería. Perfecto para acompañar un té o café.\n El budín pesa entre 750g y 800g y mide aproximadamente 28cm, rinde aproximadamente 12 porciones."
+    bun.precio = {1:390}
+    bun.ingredientes = "Aceite, jugo y ralladura de naranja, huevos, azúcar, harina, bicarbonato de sodio y polvo de hornear."
+    bun.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
+    
+    ### CARROT CAKE
+    cak = Productos("cak")
+    cak.nombre = "Carrot Cake"
+    cak.desc = "Descubre mi carrot cake con frosting de cheese cream. Una combinación de sabores y texturas que te sorprenderá. Su textura húmeda y suave se complementa con un frosting de cheese cream, que equilibra el dulzor del bizcochuelo con un toque suavemente ácido.\n La torta pesa 1.2kg y tiene 28cm de diámetro, salen unas 12 porciones"
+    cak.precio = {1:590}
+    cak.ingredientes = "Huevos, azúcar, aceite, zanahoria, harina, polvo de hornear, canela, sal y queso crema."
+    cak.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
+
+    productos = [gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak]
     [p.gen() for p in productos]
 
     return productos
