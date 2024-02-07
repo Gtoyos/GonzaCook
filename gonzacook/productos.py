@@ -87,7 +87,7 @@ def crearProductos():
     bun.nombre = "Budín"
     bun.desc = "Con una textura esponjosa y un sabor cítrico, el budín de naranja es un clásico de la repostería. Perfecto para acompañar un té o café.\n El budín pesa entre 750g y 800g y mide aproximadamente 28cm, rinde aproximadamente 12 porciones."
     bun.precio = {1:420}
-    bro.custom = {"Sabor":["Naranja","Limón"]}
+    bun.custom = {"Sabor":["Naranja","Limón"]}
     bun.ingredientes = "Aceite, jugo y ralladura de naranja, huevos, azúcar, harina, bicarbonato de sodio y polvo de hornear."
     bun.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
     
@@ -96,7 +96,7 @@ def crearProductos():
     cak.nombre = "Carrot Cake"
     cak.desc = "Descubre mi carrot cake con frosting de cheese cream. Una combinación de sabores y texturas que te sorprenderá. Su textura húmeda y suave se complementa con un frosting de cheese cream, que equilibra el dulzor del bizcochuelo con un toque suavemente ácido.\n La torta pesa 1.2kg y tiene 28cm de diámetro, salen unas 12 porciones"
     cak.precio = {1:650}
-    bro.custom = {"Topping":["Nueces","Almendras","Clásico"]}
+    cak.custom = {"Topping":["Nueces","Almendras","Clásico"]}
     cak.ingredientes = "Huevos, azúcar, aceite, zanahoria, harina, polvo de hornear, canela, sal y queso crema."
     cak.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
