@@ -88,7 +88,8 @@ def crearProductos():
     bun.nombre = "Budín"
     bun.desc = "Con una textura esponjosa y un sabor cítrico, el budín de naranja es un clásico de la repostería. Perfecto para acompañar un té o café.\n El budín pesa entre 750g y 800g y mide aproximadamente 28cm, rinde aproximadamente 12 porciones."
     bun.precio = {1:420}
-    bun.custom = {"Sabor":["Naranja","Limón"]}
+    bun.custom = {"Sabor":["Naranja","Limón"],"Topping":["Nueces", "Choco"]}
+    cak.custom_extra = {"Nueces": 30, "Choco": 30}
     bun.ingredientes = "Aceite, jugo y ralladura de naranja, huevos, azúcar, harina, bicarbonato de sodio y polvo de hornear."
     bun.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
     

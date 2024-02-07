@@ -42,7 +42,7 @@
     <h1 id="prod-title">{{p.nombre}}</h1>
 </div>
 {% if p.precio.items() %}
-<div class="box-p" id="x" data-prix="{{p.precio}}">
+<div class="box-p" id="x" data-prix="{{p.precio}}"> 
     {% for k,t in p.precio.items() %}
     <p class="prix-p">
     {% if k==1 %}La unidad: ${{t}},00{% endif %}
