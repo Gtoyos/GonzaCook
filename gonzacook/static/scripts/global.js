@@ -39,10 +39,12 @@ function gustoSel(elem){
     var children = document.getElementById(cat).children
     for (var i = 0; i < children.length; i++) {
         var x = children[i];
-        if(x.id!=elem.id && x.dataset["selected"]==true){
-            remstyle(x)        
-            x.dataset["selected"]=false
-            update_prix(x,parseInt(x.textContent.split("+")[1].split("$")[0])*-1)
+        if(x.id!=elem.id){
+            remstyle(x)
+            if(x.dataset["selected"] == "true"){
+                x.dataset["selected"]=false
+                update_prix(x,parseInt(x.textContent.split("+")[1].split("$")[0])*-1)
+            }  
         }
     }
     if(cat in customizations && customizations[cat]==elem.id.split("-")[1]){
