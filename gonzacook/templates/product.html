@@ -62,7 +62,12 @@
     <h4 class="topping">{{k}}</h4>
     <div id="{{k.replace(" ","_")}}" class="botones d-flex justify-content-center flex-wrap">
     {% for x in xs %}
-    <button id="{{k.replace(" ","_")}}-{{x.replace(" ","_")}}" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">{{x}}</button>
+        {% if x in p.custom_extra.keys() %}
+            <button id="{{k.replace(" ","_")}}-{{x.replace(" ","_")}}" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">{{x+" ("+p.custom_extra[x]+"$)"}}</button>
+        {% endif %}
+        {% else %}
+            <button id="{{k.replace(" ","_")}}-{{x.replace(" ","_")}}" onclick="gustoSel(this)" type="button" class="btn btn-light btn-sabores">{{x}}</button>
+        {% endif %}
     {% endfor %}
     </div>
 {% endfor %}

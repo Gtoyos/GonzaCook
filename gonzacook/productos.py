@@ -97,6 +97,7 @@ def crearProductos():
     cak.desc = "Descubre mi carrot cake con frosting de cheese cream. Una combinación de sabores y texturas que te sorprenderá. Su textura húmeda y suave se complementa con un frosting de cheese cream, que equilibra el dulzor del bizcochuelo con un toque suavemente ácido.\n La torta pesa 1.2kg y tiene 28cm de diámetro, salen unas 12 porciones"
     cak.precio = {1:650}
     cak.custom = {"Topping":["Nueces","Almendras","Clásico"]}
+    cak.custom_extra = {"Nueces": 30, "Almendras": 30, "Clásico": 0}
     cak.ingredientes = "Huevos, azúcar, aceite, zanahoria, harina, polvo de hornear, canela, sal y queso crema."
     cak.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
