@@ -39,7 +39,7 @@ function gustoSel(elem){
     var children = document.getElementById(cat).children
     for (var i = 0; i < children.length; i++) {
         var x = children[i];
-        if(x.id!=elem.id){
+        if(x.id!=elem.id && x.style.cssText.includes(";box-shadow: 0 0 0 .1rem black")){
             remstyle(x)        
         }
     }
