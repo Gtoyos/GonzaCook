@@ -39,18 +39,22 @@ function gustoSel(elem){
     var children = document.getElementById(cat).children
     for (var i = 0; i < children.length; i++) {
         var x = children[i];
-        if(x.id!=elem.id && x.style.cssText.includes(";box-shadow: 0 0 0 .1rem black")){
+        if(x.id!=elem.id && x.dataset["selected"]==true){
             remstyle(x)        
+            x.dataset["selected"]=false
+            update_prix(x,parseInt(x.textContent.split("+")[1].split("$")[0])*-1)
         }
     }
     if(cat in customizations && customizations[cat]==elem.id.split("-")[1]){
         customizations[cat]=null;
         remstyle(elem)
+        elem.dataset["selected"]=false
         update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0])*-1)
     } else {
         customizations[cat]=elem.id.split("-")[1]
         elem.style.cssText += ';background-color: #fffcba !important;';
         elem.style.cssText += ';box-shadow: 0 0 0 .1rem black !important;';
+        elem.dataset["selected"]=true
         if(elem.textContent.includes("+")){
             update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0]))
         }
