@@ -9,6 +9,7 @@ class Productos:
         self.desc = None
         self.precio = {}
         self.custom = {}
+        self.custom_extra = {}
         self.consejos = "Pronto para servir! Consumir preferentemente no más de siete dias tras haber recibido el producto."
         self.ingredientes = None
 
