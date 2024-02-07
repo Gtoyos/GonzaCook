@@ -46,6 +46,13 @@ function gustoSel(elem){
         elem.style.cssText += ';background-color: #fffcba !important;';
         elem.style.cssText += ';box-shadow: 0 0 0 .1rem black !important;';
     }
+    if(elem.textContent.includes("+")){
+        extraPrice = parseInt(elem.textContent.split("+")[1].split("$")[0])
+        precios = document.getElementById("x").dataset["prix"]
+        precios = precios.slice(1,-1).split(" ")
+        precios = "{"+precios[0]+" "+(parseInt(precios[1])+extraPrice)+"}" 
+        document.getElementById("x").dataset["prix"] = precios
+    }
     return;
 
 }
