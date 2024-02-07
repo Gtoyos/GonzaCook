@@ -30,6 +30,11 @@ function remstyle(x){
 //Seleccion de una caracterstica del producto
 //Guarda la seleccion, elemina la seleccion anterior.
 function gustoSel(elem){
+    function update_prix(elem,extra_price=0){
+        precios = document.getElementById("x").dataset["prix"].slice(1,-1).split(" ")
+        precios = "{"+precios[0]+" "+(parseInt(precios[1])+extra_price)+"}" 
+        document.getElementById("x").dataset["prix"] = precios
+    }
     cat = elem.id.split("-")[0]
     var children = document.getElementById(cat).children
     for (var i = 0; i < children.length; i++) {
@@ -41,17 +46,14 @@ function gustoSel(elem){
     if(cat in customizations && customizations[cat]==elem.id.split("-")[1]){
         customizations[cat]=null;
         remstyle(elem)
+        update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0])*-1)
     } else {
         customizations[cat]=elem.id.split("-")[1]
         elem.style.cssText += ';background-color: #fffcba !important;';
         elem.style.cssText += ';box-shadow: 0 0 0 .1rem black !important;';
-    }
-    if(elem.textContent.includes("+")){
-        extraPrice = parseInt(elem.textContent.split("+")[1].split("$")[0])
-        precios = document.getElementById("x").dataset["prix"]
-        precios = precios.slice(1,-1).split(" ")
-        precios = "{"+precios[0]+" "+(parseInt(precios[1])+extraPrice)+"}" 
-        document.getElementById("x").dataset["prix"] = precios
+        if(elem.textContent.includes("+")){
+            update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0]))
+        }
     }
     return;
 
