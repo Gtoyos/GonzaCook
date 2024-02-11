@@ -90,7 +90,7 @@ def crearProductos():
     bun.precio = {1:420}
     bun.custom = {"Sabor":["Naranja","Limón"],"Topping":["Nueces", "Choco"]}
     bun.custom_extra = {"Nueces": 30, "Choco": 30}
-    bun.ingredientes = "Aceite, jugo y ralladura de naranja, huevos, azúcar, harina, bicarbonato de sodio y polvo de hornear."
+    bun.ingredientes = "Aceite, jugo y ralladura de naranja, huevos, azúcar, harina y polvo de hornear."
     bun.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
     
     ### CARROT CAKE
