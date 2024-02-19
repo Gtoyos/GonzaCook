@@ -103,7 +103,15 @@ def crearProductos():
     cak.ingredientes = "Huevos, azúcar, aceite, zanahoria, harina, polvo de hornear, canela, sal y queso crema."
     cak.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
-    productos = [gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak]
+    ### ALFAJORES DE MAICENA
+    alfm = Productos("alfm")
+    alfm.nombre = "Alfajores de Maicena"
+    alfm.desc = "Los alfajores de maicena son un clásico de la repostería. Dos galletas de maicena rellenas de dulce de leche bordeadas con coco rallado. Un clásico que no puede faltar en una buena merienda.\nLa presentación de 5 unidades viene en un empaque especial de obsequio."
+    alfm.precio = {1: 20, 5:100, 12:200}
+    alfm.ingredientes = "Harina, maicena, manteca, azúcar, huevos, polvo de hornear, dulce de leche, coco rallado, vainilla y sal."
+    alfm.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
+
+    productos = [gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak,alfm]
     [p.gen() for p in productos]
 
     return productos

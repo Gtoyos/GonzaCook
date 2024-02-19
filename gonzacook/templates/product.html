@@ -48,6 +48,7 @@
     {% if k==1 %}La unidad: ${{t}},00{% endif %}
     {% if k==6 %}Media docena: ${{t}},00{% endif %}
     {% if k==12 %}Una docena: ${{t}},00{% endif %}
+    {% if not (k==1 or k==6 or k==12)%}{{k}} unidades: ${{t}},00{% endif %}
     </p>
     {% endfor %}
 </div>
