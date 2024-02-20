@@ -51,6 +51,7 @@
                                     {% if k==1 %}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">Unidad</a></li>{% endif %}
                                     {% if k==6 %}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">Media docena</a></li>{% endif %}
                                     {% if k==12 %}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">Docena</a></li>{% endif %}
+                                    {% if not (k==1 or k==6 or k==12)%}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">{{k}} unidades</a></li>{% endif %}
                                     {% endfor %}
                                 </ul>
                             </div>
