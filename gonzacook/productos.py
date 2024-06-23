@@ -111,7 +111,15 @@ def crearProductos():
     alfm.ingredientes = "Harina, maicena, manteca, azúcar, huevos, polvo de hornear, dulce de leche, coco rallado, vainilla y sal."
     alfm.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
-    productos = [gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak,alfm]
+    ### GALLETITAS DE MANTECA CON CARITAS
+    gmac = Productos("gmac")
+    gmac.nombre = "Galletitas de Manteca con Caritas"
+    gmac.desc = "Las galletitas de manteca con caritas son una excelente opción para los más chicos. Con la misma receta de las galletitas de manteca, estas galletitas son decoradas con caritas de chocolate. Perfectas para una merienda o para regalar a los más chicos."
+    gmac.precio = {12:150}
+    gmac.ingredientes = "Las galletas de manteca contienen harina, manteca, azucar, vainilla y polvo de hornear y chocolate para la decoración."
+    gmac.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
+    
+    productos = [gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak,alfm,gmac]
     [p.gen() for p in productos]
 
     return productos
