@@ -75,6 +75,19 @@ def crearProductos():
     bro.ingredientes = "Chocolate, azúcar, manteca, huevos, harina, sal y frutos secos a elección."
     bro.consejos = "Precalentar el horno a 180°C y calentar durante 15 minutos. Consumir preferentemente no más de siete dias tras haber recibido el producto."
 
+    ### PICADA
+    pic = Productos("pic")
+    pic.nombre = "Picadas Personalizadas"
+    pic.desc = "Ofrecemos picadas personalizadas con una selección variada de quesos y fiambres de primera calidad. Se adaptan a tus gustos y necesidades, ideales para reuniones y celebraciones. Contactanos para más información y armamos la picada perfecta para vos."
+
+    ### PANDULCE
+    pdu = Productos("pdu")
+    pdu.nombre = "Panes Dulces"
+    pdu.desc = "Nuestros panes dulces artesanales vienen en dos versiones: fruta abrillantada o chocolate y nueces. Están cubiertos con un glacé especial de naranja, decorados con frutos secos y una cereza, y son ideales para las fiestas y el comienzo del año. Cada pan dulce es de medio kilo, perfecto para compartir o regalar."
+    pdu.precio = {1: 450}
+    pdu.ingredientes = "Manteca, harina, azúcar, leche y agua de azhar."
+    pdu.consejos = "Consumir  preferentemente no más de siete dias tras haber recibido el producto."
+
     ### SCONES
     sco = Productos("sco")
     sco.nombre = "Scones de Queso"
