@@ -132,7 +132,7 @@ def crearProductos():
     gmac.ingredientes = "Las galletas de manteca contienen harina, manteca, azucar, vainilla y polvo de hornear y chocolate para la decoración."
     gmac.consejos = "Consumir preferentemente no más de siete dias tras haber recibido el producto."
     
-    productos = [gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak,alfm,gmac]
+    productos = [pdu,pic,gam,gma,gav,gdi,pha,pre,bro,sco,bun,cak,alfm,gmac]
     [p.gen() for p in productos]
 
     return productos
