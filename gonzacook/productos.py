@@ -87,7 +87,8 @@ def crearProductos():
     pdu.precio = {1: 450}
     pdu.ingredientes = "Manteca, harina, azúcar, leche y agua de azhar."
     pdu.consejos = "Consumir  preferentemente no más de siete dias tras haber recibido el producto."
-
+    pdu.custom = {"Relleno":["Fruta abrillantada","Chispas de chocolate"]}
+                  
     ### SCONES
     sco = Productos("sco")
     sco.nombre = "Scones de Queso"
