@@ -170,7 +170,7 @@ function toKart(mode=0){
         setKart(krt)
         carritoModal.toggle();
         if(mode==0){
-            var myModal2 = new bootstrap.Modal(document.getElementById("ty"));
+            var myModal2 = bootstrap.Modal.getOrCreateInstance(document.getElementById("ty"));
             document.getElementById("tytitle").textContent = "Agregar a Carrito 🛒"
             document.getElementById("tymsg").innerHTML = 'Se ha agregado su selección al carrito. 😄 <a style="color:black" href="javascript:seeKart(0)">Click aquí para verlo.</a>'
             myModal2.show();
@@ -198,7 +198,7 @@ async function buyKart(dt=0){
     } else{
         remItem(dt)
     }
-    var myModal2 = new bootstrap.Modal(document.getElementById("ty"));
+    var myModal2 = bootstrap.Modal.getOrCreateInstance(document.getElementById("ty"));
     document.getElementById("tytitle").textContent = "Enviando pedido..."
     document.getElementById("tymsg").textContent = "Por favor espere."
     myModal2.show();
