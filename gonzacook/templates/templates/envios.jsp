@@ -1,4 +1,5 @@
-{# templates/templates/_envios.html #}
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
