@@ -1,27 +1,87 @@
 .cursive-h1 {
     text-align: center;
-    font-family: 'Tangerine','Lucida Handwriting',cursive !important;
-    margin-bottom: 2rem;
-    font-size: 5em;
-    font-weight: bold;
+    margin-bottom: 1.5rem;
 }
+
 .cursive-h1-txt {
-    font-size: 5rem;
-    font-weight: bold;
+    font-family: var(--font-script);
+    font-size: 5.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+}
+
+.presentation-intro {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- Catalog grid ---------- */
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.1rem;
+    padding: 0.5rem 0;
+}
+
+@media (max-width: 1200px) {
+    .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 800px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
 }
 
 .tarjeta {
-    background-size: cover;
-    width: 100%;
-    position: relative;
-}
-.tarjeta:after {
-    content: "";
     display: block;
-    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform .22s ease, box-shadow .22s ease;
 }
+
+.tarjeta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 10, 5, 0) 45%, rgba(20, 10, 5, 0.72) 100%);
+    transition: background .22s ease;
+}
+
+.tarjeta:hover, .tarjeta:focus-visible {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: var(--shadow-md);
+}
+
+.tarjeta:hover::before {
+    background: linear-gradient(180deg, rgba(20, 10, 5, 0.05) 35%, rgba(20, 10, 5, 0.8) 100%);
+}
+
+.card-body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 0.85rem 0.9rem;
+}
+
 .tarjeta-t {
-    color: whitesmoke;
-    font-size: 1.55rem;
-    text-shadow: 2px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    color: #fffdf0;
+    font-size: 1.08rem;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    margin: 0;
+    line-height: 1.25;
 }

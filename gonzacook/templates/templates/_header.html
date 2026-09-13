@@ -1,7 +1,7 @@
 
 {# pages/templates/_header.html #}
 
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{g.rootpath}}/">
           <img src="{{ url_for('static', filename='media/logo.png') }}">
@@ -10,15 +10,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0 align-items-lg-center">
                 <li class="nav-item">
-                    <a class="header-opt nav-link nav-item-kart" href="javascript:seeKart(0)"><b>Mi carrito  🛒</b></a>
+                    <a class="header-opt nav-link" href="{{g.rootpath}}/#misp">Catálogo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="header-opt nav-link" href="{{g.rootpath}}/#misp">Catálogo Web</a>
+                    <a class="header-opt nav-link" href="{{g.rootpath}}/#sobremi">Sobre mí</a>
                 </li>
                 <li class="nav-item">
-                    <a class="header-opt nav-link" href="{{g.rootpath}}/#sobremi">Sobre mi</a>
+                    <a class="header-opt nav-link nav-item-kart" href="javascript:seeKart(0)">Mi carrito 🛒</a>
                 </li>
             </ul>
         </div>

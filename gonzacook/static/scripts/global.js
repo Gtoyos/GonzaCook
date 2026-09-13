@@ -24,7 +24,7 @@ function setKart(x){
 //Remueve el CSS de un botón seleccionado
 function remstyle(x){
     x.style.cssText += ';box-shadow: black 0px 0px 0px 0px !important;';
-    x.style.cssText += ';background-color: #F3E5AB !important;';  
+    x.style.cssText += ';background-color: #f3e5ab !important;';
 }
 
 //Seleccion de una caracterstica del producto
@@ -54,8 +54,8 @@ function gustoSel(elem){
         update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0])*-1)
     } else {
         customizations[cat]=elem.id.split("-")[1]
-        elem.style.cssText += ';background-color: #fffcba !important;';
-        elem.style.cssText += ';box-shadow: 0 0 0 .1rem black !important;';
+        elem.style.cssText += ';background-color: #e2c25e !important;';
+        elem.style.cssText += ';box-shadow: 0 0 0 .15rem #542323 !important;';
         elem.dataset["selected"]=true
         if(elem.textContent.includes("+")){
             update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0]))
@@ -271,3 +271,18 @@ function remItem(itemId){
     setKart(mykart)
     seeKart(1)
 }
+
+//Sombra sutil en la barra de navegación al scrollear
+(function(){
+    var nav = document.getElementById("mainNav");
+    if(!nav) return;
+    function onScroll(){
+        if(window.scrollY > 8){
+            nav.classList.add("is-scrolled");
+        } else {
+            nav.classList.remove("is-scrolled");
+        }
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
+})();
