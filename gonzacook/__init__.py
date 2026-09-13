@@ -11,7 +11,7 @@ prod = productos.crearProductos()
 
 ORDERS_FILE = os.path.join(os.path.dirname(__file__), '..', 'orders.json')
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '')
+TELEGRAM_CHAT_IDS = [cid.strip() for cid in os.environ.get('TELEGRAM_CHAT_IDS', os.environ.get('TELEGRAM_CHAT_ID', '')).split(',') if cid.strip()]
 
 with app.app_context():
     g.rootpath = app.instance_path
@@ -53,7 +53,7 @@ def create_order():
     with open(ORDERS_FILE, 'w', encoding='utf-8') as f:
         json.dump(orders, f, ensure_ascii=False, indent=2)
 
-    if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
+    if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_IDS:
         _send_telegram(order)
 
     return jsonify({'order_id': order_id, 'status': 'ok'})
@@ -71,13 +71,14 @@ def _send_telegram(order):
         lines.append(f"{i+1}. " + ". ".join(parts))
     msg = "\n".join(lines)
 
-    payload = json.dumps({'chat_id': TELEGRAM_CHAT_ID, 'text': msg, 'parse_mode': 'Markdown'}).encode()
-    req = urllib.request.Request(
-        f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-        data=payload,
-        headers={'Content-Type': 'application/json'},
-    )
-    try:
-        urllib.request.urlopen(req, timeout=5)
-    except Exception:
-        pass
+    for chat_id in TELEGRAM_CHAT_IDS:
+        payload = json.dumps({'chat_id': chat_id, 'text': msg, 'parse_mode': 'Markdown'}).encode()
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            data=payload,
+            headers={'Content-Type': 'application/json'},
+        )
+        try:
+            urllib.request.urlopen(req, timeout=5)
+        except Exception:
+            pass

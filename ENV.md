@@ -7,7 +7,7 @@ The following environment variables must be set on the server for the Telegram o
 | Variable | Description |
 |---|---|
 | `TELEGRAM_BOT_TOKEN` | Token provided by @BotFather when creating the bot |
-| `TELEGRAM_CHAT_ID` | Telegram chat ID where order notifications are sent |
+| `TELEGRAM_CHAT_IDS` | Comma-separated list of chat IDs to notify (e.g. `123456,789012`) |
 
 ## How to get these values
 
@@ -34,7 +34,7 @@ Add the following under `[Service]`:
 ```ini
 [Service]
 Environment="TELEGRAM_BOT_TOKEN=your_token_here"
-Environment="TELEGRAM_CHAT_ID=your_chat_id_here"
+Environment="TELEGRAM_CHAT_IDS=chat_id_one,chat_id_two"
 ```
 
 Then reload and restart:
