@@ -185,9 +185,9 @@ function toKart(mode=0){
 
 //Envía el pedido al servidor y muestra confirmación.
 async function buyKart(dt=0){
-    mykart = getKart()
+    let itemsToSend = getKart()
     if(dt!=0){
-        mykart = mykart.filter(item => item.ts == dt)
+        itemsToSend = itemsToSend.filter(item => item.ts == dt)
     }
     if(document.getElementById("prod-title")!=null){
         clearsel()
@@ -206,7 +206,7 @@ async function buyKart(dt=0){
         const resp = await fetch('/api/order', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({items: mykart})
+            body: JSON.stringify({items: itemsToSend})
         });
         const result = await resp.json();
         document.getElementById("tytitle").textContent = "Pedido recibido ✅"
