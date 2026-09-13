@@ -23,8 +23,9 @@ function setKart(x){
 
 //Remueve el CSS de un botón seleccionado
 function remstyle(x){
-    x.style.cssText += ';box-shadow: black 0px 0px 0px 0px !important;';
-    x.style.cssText += ';background-color: #F3E5AB !important;';  
+    x.style.cssText += ';box-shadow: none !important;';
+    x.style.cssText += ';background-color: #f5f2ee !important;';
+    x.style.cssText += ';color: #1a1a1a !important;';  
 }
 
 //Seleccion de una caracterstica del producto
@@ -54,8 +55,9 @@ function gustoSel(elem){
         update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0])*-1)
     } else {
         customizations[cat]=elem.id.split("-")[1]
-        elem.style.cssText += ';background-color: #fffcba !important;';
-        elem.style.cssText += ';box-shadow: 0 0 0 .1rem black !important;';
+        elem.style.cssText += ';background-color: #c0392b !important;';
+        elem.style.cssText += ';color: #fff !important;';
+        elem.style.cssText += ';box-shadow: 0 0 0 .15rem #c0392b !important;';
         elem.dataset["selected"]=true
         if(elem.textContent.includes("+")){
             update_prix(elem,parseInt(elem.textContent.split("+")[1].split("$")[0]))
