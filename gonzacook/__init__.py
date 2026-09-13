@@ -11,7 +11,7 @@ prod = productos.crearProductos()
 
 ORDERS_FILE = os.path.join(os.path.dirname(__file__), '..', 'orders.json')
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-TELEGRAM_CHAT_IDS = [cid.strip() for cid in os.environ.get('TELEGRAM_CHAT_IDS', os.environ.get('TELEGRAM_CHAT_ID', '')).split(',') if cid.strip()]
+TELEGRAM_CHAT_IDS = [cid.strip() for cid in os.environ.get('TELEGRAM_CHAT_IDS', '').split(',') if cid.strip()]
 
 with app.app_context():
     g.rootpath = app.instance_path
