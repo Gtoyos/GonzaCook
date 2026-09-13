@@ -181,22 +181,11 @@ function toKart(mode=0){
     //return 1
 }
 
-//Genera el mensaje de compra y lo envía a partir del carrito.
-function buyKart(dt=0){
-    txt="https://api.whatsapp.com/send?text=Hola GonzaCook, quisiera hacer el siguiente encargo:";
+//Envía el pedido al servidor y muestra confirmación.
+async function buyKart(dt=0){
     mykart = getKart()
     if(dt!=0){
         mykart = mykart.filter(item => item.ts == dt)
-    }
-    for(let i=0; i<mykart.length; i++){
-        txt+="%0A"+i+". "
-        var v = mykart[i]
-        for(key in v){
-            if(key=="ts" || key=="presentacion" || key=="cantidad" || key=="prixes")
-                continue;
-            txt+="%0A"+key.replaceAll("_"," ")+": "+v[key].replaceAll("_"," ")+". "
-        }
-        txt += "Cantidad: "+parseInt(v.cantidad)*parseInt(v.presentacion)+" unidades.";
     }
     if(document.getElementById("prod-title")!=null){
         clearsel()
@@ -208,11 +197,22 @@ function buyKart(dt=0){
         remItem(dt)
     }
     var myModal2 = new bootstrap.Modal(document.getElementById("ty"));
-    document.getElementById("tytitle").textContent = "Pedido confirmado"
-    document.getElementById("tymsg").textContent = "Muchas gracias por su compra! Ahora solo hace falta enviar el mensaje generado en WhatsApp. Una vez que lo envíes, te responderé a la brevedad."
+    document.getElementById("tytitle").textContent = "Enviando pedido..."
+    document.getElementById("tymsg").textContent = "Por favor espere."
     myModal2.show();
-    //window.location.href = txt;
-	window.open(txt+"&phone=598092452842", '_blank').focus();
+    try {
+        const resp = await fetch('/api/order', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({items: mykart})
+        });
+        const result = await resp.json();
+        document.getElementById("tytitle").textContent = "Pedido recibido ✅"
+        document.getElementById("tymsg").textContent = "¡Tu pedido #"+result.order_id+" fue recibido! Te responderemos a la brevedad."
+    } catch(e) {
+        document.getElementById("tytitle").textContent = "Error"
+        document.getElementById("tymsg").textContent = "Hubo un problema al enviar el pedido. Por favor intente nuevamente."
+    }
 }
 
 //Visualiza el carrito
