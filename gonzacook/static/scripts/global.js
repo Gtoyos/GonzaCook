@@ -120,6 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const presbtn = document.getElementById("presbtn");
     if(presbtn && parseInt(presbtn.dataset['opts']) === 1){
         presentacionSel(0);
+        const lbl = document.getElementById('cantlbl');
+        if(lbl) lbl.textContent = '¿Cuántas unidades?';
     }
 });
 
