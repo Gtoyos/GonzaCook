@@ -141,7 +141,7 @@
               {% if order.customer_phone %} &mdash; {{ order.customer_phone }}{% endif %}
             </div>
             <ul class="order-items">
-              {% for item in order.items %}
+              {% for item in order['items'] %}
               <li>
                 {% for k, v in item.items() %}
                   {% if k not in ['ts','prixes'] %}{{ k }}: {{ v }}{% if not loop.last %}, {% endif %}{% endif %}
