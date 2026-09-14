@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #1a1a1a;
+      color: #eee;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #2a2a2a;
+      border-bottom: 1px solid #3a3a3a;
+    }
+    header h1 { font-size: 1.3rem; }
+    header a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: .9rem;
+    }
+    header a:hover { color: #eee; }
+    main { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid #3a3a3a;
+    }
+    section { margin-bottom: 3rem; }
+
+    /* Orders */
+    .orders-empty { color: #888; font-size: .95rem; }
+    .order-card {
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: .75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .order-info { flex: 1; }
+    .order-meta { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .order-customer { font-weight: 600; margin-bottom: .3rem; }
+    .order-items { font-size: .85rem; color: #ccc; }
+    .order-items li { margin-left: 1.2rem; margin-top: .2rem; }
+    .btn-delete {
+      background: #7a2a2a;
+      color: #f88;
+      border: none;
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      cursor: pointer;
+      font-size: .85rem;
+      white-space: nowrap;
+      align-self: center;
+    }
+    .btn-delete:hover { background: #9a3a3a; }
+
+    /* Prices */
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th {
+      text-align: left;
+      padding: .5rem .75rem;
+      font-size: .8rem;
+      color: #888;
+      border-bottom: 1px solid #3a3a3a;
+    }
+    .price-table td { padding: .6rem .75rem; border-bottom: 1px solid #2e2e2e; vertical-align: middle; }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-input {
+      width: 90px;
+      padding: .35rem .5rem;
+      background: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: #eee;
+      font-size: .95rem;
+    }
+    .price-input:focus { outline: none; border-color: #c9a05a; }
+    .btn-save {
+      background: #c9a05a;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 5px;
+      padding: .35rem .75rem;
+      cursor: pointer;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+    .btn-save:hover { background: #b8903a; }
+    .save-status { font-size: .8rem; margin-left: .5rem; }
+    .save-status.ok { color: #6f6; }
+    .save-status.err { color: #f66; }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: .75rem 1.25rem;
+      font-size: .9rem;
+      display: none;
+      z-index: 999;
+    }
+    .toast.show { display: block; }
+    .toast.ok { border-color: #4a7a4a; color: #6f6; }
+    .toast.err { border-color: #7a3a3a; color: #f66; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍪 GonzaCook — Admin</h1>
+    <a href="/chef/logout">Cerrar sesión</a>
+  </header>
+
+  <main>
+    <!-- ORDERS -->
+    <section>
+      <h2>Pedidos ({{ orders | length }})</h2>
+      {% if not orders %}
+        <p class="orders-empty">No hay pedidos registrados.</p>
+      {% else %}
+        {% for order in orders %}
+        <div class="order-card" id="order-{{ order.id }}">
+          <div class="order-info">
+            <div class="order-meta">#{{ order.id }} &mdash; {{ order.timestamp[:16].replace('T',' ') }}</div>
+            <div class="order-customer">
+              {{ order.customer_name or '(sin nombre)' }}
+              {% if order.customer_phone %} &mdash; {{ order.customer_phone }}{% endif %}
+            </div>
+            <ul class="order-items">
+              {% for item in order.items %}
+              <li>
+                {% for k, v in item.items() %}
+                  {% if k not in ['ts','prixes'] %}{{ k }}: {{ v }}{% if not loop.last %}, {% endif %}{% endif %}
+                {% endfor %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <button class="btn-delete" onclick="deleteOrder({{ order.id }})">Eliminar</button>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </section>
+
+    <!-- PRICES -->
+    <section>
+      <h2>Precios</h2>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio ($)</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in products %}
+            {% for qty, price in p.precio.items() %}
+            <tr>
+              <td>{{ p.nombre }}</td>
+              <td>{{ qty }} unid.</td>
+              <td>
+                <input class="price-input" type="number" min="0" step="0.5"
+                       id="price-{{ p.code }}-{{ qty }}"
+                       value="{{ price }}"
+                       data-code="{{ p.code }}"
+                       data-qty="{{ qty }}">
+              </td>
+              <td>
+                <button class="btn-save" onclick="savePrice('{{ p.code }}', {{ qty }})">Guardar</button>
+                <span class="save-status" id="status-{{ p.code }}-{{ qty }}"></span>
+              </td>
+            </tr>
+            {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function showToast(msg, type) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast show ' + type;
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => { t.className = 'toast'; }, 3000);
+    }
+
+    function deleteOrder(id) {
+      if (!confirm('¿Eliminar pedido #' + id + '?')) return;
+      fetch('/chef/orders/delete/' + id, { method: 'POST' })
+        .then(r => r.json())
+        .then(data => {
+          if (data.status === 'ok') {
+            const el = document.getElementById('order-' + id);
+            if (el) el.remove();
+            showToast('Pedido #' + id + ' eliminado', 'ok');
+          } else {
+            showToast('Error al eliminar pedido', 'err');
+          }
+        })
+        .catch(() => showToast('Error de red', 'err'));
+    }
+
+    function savePrice(code, qty) {
+      const input = document.getElementById('price-' + code + '-' + qty);
+      const statusEl = document.getElementById('status-' + code + '-' + qty);
+      const price = parseFloat(input.value);
+      if (isNaN(price) || price < 0) {
+        statusEl.textContent = 'Valor inválido';
+        statusEl.className = 'save-status err';
+        return;
+      }
+      fetch('/chef/prices/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code, qty, price }),
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.status === 'ok') {
+            statusEl.textContent = '✓ Guardado';
+            statusEl.className = 'save-status ok';
+            showToast('Precio actualizado: ' + code + ' x' + qty, 'ok');
+            setTimeout(() => { statusEl.textContent = ''; }, 3000);
+          } else {
+            statusEl.textContent = 'Error';
+            statusEl.className = 'save-status err';
+          }
+        })
+        .catch(() => { statusEl.textContent = 'Error de red'; statusEl.className = 'save-status err'; });
+    }
+  </script>
+</body>
+</html>
