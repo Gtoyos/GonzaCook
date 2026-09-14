@@ -2,6 +2,78 @@
 carritoModal=null;
 kartmodal=null;
 
+//Perfil de usuario (localStorage)
+const profileKey = "gonzacookProfile"
+const orderHistoryKey = "gonzacookOrderHistory"
+
+function getProfile(){
+    try { return JSON.parse(localStorage.getItem(profileKey)) || null; } catch(e) { return null; }
+}
+function setProfile(name, phone){
+    localStorage.setItem(profileKey, JSON.stringify({name, phone}));
+}
+function getOrderHistory(){
+    try { return JSON.parse(localStorage.getItem(orderHistoryKey)) || []; } catch(e) { return []; }
+}
+function addOrderToHistory(order){
+    const h = getOrderHistory();
+    h.unshift(order);
+    localStorage.setItem(orderHistoryKey, JSON.stringify(h));
+}
+function updateProfileNav(){
+    const p = getProfile();
+    const el = document.getElementById("profileNavLink");
+    if(el) el.textContent = p ? "👤 " + p.name : "👤 Perfil";
+}
+function showProfileModal(){
+    const p = getProfile();
+    const history = getOrderHistory();
+    if(p){
+        document.getElementById("profileViewName").textContent = p.name;
+        document.getElementById("profileViewPhone").textContent = p.phone;
+        document.getElementById("profileFormSection").style.display = "none";
+        document.getElementById("profileViewSection").style.display = "block";
+        const histEl = document.getElementById("profileOrderHistory");
+        if(history.length === 0){
+            histEl.innerHTML = "<p class='text-muted small'>No tenés pedidos registrados.</p>";
+        } else {
+            histEl.innerHTML = history.map(o =>
+                `<div class="border rounded p-2 mb-2 small">
+                    <b>Pedido #${o.id}</b> — ${new Date(o.timestamp).toLocaleDateString('es-UY')}
+                    <div class="text-muted">${o.summary}</div>
+                </div>`
+            ).join("");
+        }
+    } else {
+        document.getElementById("profileFormSection").style.display = "block";
+        document.getElementById("profileViewSection").style.display = "none";
+        document.getElementById("profileNameInput").value = "";
+        document.getElementById("profilePhoneInput").value = "";
+    }
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("profileModal")).show();
+}
+function saveProfile(){
+    const name = document.getElementById("profileNameInput").value.trim();
+    const phone = document.getElementById("profilePhoneInput").value.trim();
+    if(!name || !phone) return;
+    setProfile(name, phone);
+    updateProfileNav();
+    showProfileModal();
+}
+function editProfile(){
+    const p = getProfile();
+    document.getElementById("profileNameInput").value = p ? p.name : "";
+    document.getElementById("profilePhoneInput").value = p ? p.phone : "";
+    document.getElementById("profileFormSection").style.display = "block";
+    document.getElementById("profileViewSection").style.display = "none";
+}
+function logoutProfile(){
+    localStorage.removeItem(profileKey);
+    updateProfileNav();
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("profileModal")).hide();
+}
+document.addEventListener("DOMContentLoaded", updateProfileNav);
+
 //Variables de seleccion
 if(document.getElementById("prod-title") != null){
     nombre = document.getElementById("prod-title").textContent
@@ -185,6 +257,11 @@ function toKart(mode=0){
 
 //Envía el pedido al servidor y muestra confirmación.
 async function buyKart(dt=0){
+    const profile = getProfile();
+    if(!profile){
+        showProfileModal();
+        return;
+    }
     let itemsToSend = getKart()
     if(dt!=0){
         itemsToSend = itemsToSend.filter(item => item.ts == dt)
@@ -206,9 +283,11 @@ async function buyKart(dt=0){
         const resp = await fetch('/api/order', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({items: itemsToSend})
+            body: JSON.stringify({items: itemsToSend, customer_name: profile.name, customer_phone: profile.phone})
         });
         const result = await resp.json();
+        const summary = itemsToSend.map(i => i.Nombre || "Producto").join(", ");
+        addOrderToHistory({id: result.order_id, timestamp: new Date().toISOString(), summary});
         document.getElementById("tytitle").textContent = "Pedido recibido ✅"
         document.getElementById("tymsg").textContent = "¡Tu pedido #"+result.order_id+" fue recibido! Te responderemos a la brevedad."
     } catch(e) {

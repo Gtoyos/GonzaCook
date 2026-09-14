@@ -46,6 +46,8 @@ def create_order():
     order = {
         'id': order_id,
         'timestamp': datetime.datetime.now().isoformat(),
+        'customer_name': data.get('customer_name', ''),
+        'customer_phone': data.get('customer_phone', ''),
         'items': items,
     }
     orders.append(order)
@@ -60,6 +62,10 @@ def create_order():
 
 def _send_telegram(order):
     lines = [f"\U0001f6d2 *Nuevo Pedido #{order['id']}*"]
+    if order.get('customer_name'):
+        lines.append(f"\U0001f464 {order['customer_name']}")
+    if order.get('customer_phone'):
+        lines.append(f"\U0001f4f1 {order['customer_phone']}")
     for i, item in enumerate(order['items']):
         parts = []
         for key, val in item.items():
