@@ -48,25 +48,37 @@
                         <div class="row">
                             <p class="resumee" id="slx">Su selección:</p>
                         </div>
+                        {# Hidden anchor elements so presentacionSel() can still find pres-opt-N by id #}
+                        {% for k,t in p.precio.items() %}
+                        <span id="pres-opt-{{loop.index0}}" data-nump="{{k}}" style="display:none"></span>
+                        {% endfor %}
+                        {# Hidden presbtn so clearsel() doesn't break #}
+                        <button id="presbtn" style="display:none" data-opts="{{p.precio.items()|length}}"></button>
+
                         <form action="#">
-                        <div class="row">
-                            <div class="col mb-2 btn-group">
-                                <button id="presbtn" type="button" class="btn-sabores btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-opts="{{p.precio.items()|length}}" aria-expanded="false">
-                                Presentación
-                                </button>
-                                <ul id="list-p" class="dropdown-menu">
-                                    {% for k,t in p.precio.items() %}
-                                    {% if k==1 %}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">Unidad</a></li>{% endif %}
-                                    {% if k==6 %}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">Media docena</a></li>{% endif %}
-                                    {% if k==12 %}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">Docena</a></li>{% endif %}
-                                    {% if not (k==1 or k==6 or k==12)%}<li><a id="pres-opt-{{loop.index0}}" class="dropdown-item" href="javascript:presentacionSel({{loop.index0}})" data-nump="{{k}}">{{k}} unidades</a></li>{% endif %}
-                                    {% endfor %}
-                                </ul>
+                        {% if p.precio.items()|length > 1 %}
+                        <div class="mb-3">
+                            <p class="mb-2 small fw-semibold">¿Cuántas querés?</p>
+                            <div class="d-flex flex-wrap gap-2" id="pres-pills">
+                                {% for k,t in p.precio.items() %}
+                                {% if k==1 %}
+                                <button type="button" class="btn btn-outline-secondary pres-pill" onclick="presPillSel(this, {{loop.index0}})" data-nump="{{k}}">1 unidad — ${{t|int}}</button>
+                                {% elif k==5 %}
+                                <button type="button" class="btn btn-outline-secondary pres-pill" onclick="presPillSel(this, {{loop.index0}})" data-nump="{{k}}">5 unidades — ${{t|int}}</button>
+                                {% elif k==6 %}
+                                <button type="button" class="btn btn-outline-secondary pres-pill" onclick="presPillSel(this, {{loop.index0}})" data-nump="{{k}}">Media docena (6) — ${{t|int}}</button>
+                                {% elif k==12 %}
+                                <button type="button" class="btn btn-outline-secondary pres-pill" onclick="presPillSel(this, {{loop.index0}})" data-nump="{{k}}">Docena (12) — ${{t|int}}</button>
+                                {% else %}
+                                <button type="button" class="btn btn-outline-secondary pres-pill" onclick="presPillSel(this, {{loop.index0}})" data-nump="{{k}}">{{k}} unidades — ${{t|int}}</button>
+                                {% endif %}
+                                {% endfor %}
                             </div>
-                            <div class="col form-floating mb-2">
-                                <input id="cant" pattern="^([1-9][0-9]*)$" class="form-control rounded-4" name="cant" required>
-                                <label id="cantlbl" for="cant">Cantidad</label>     
-                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="form-floating mb-2">
+                            <input id="cant" pattern="^([1-9][0-9]*)$" class="form-control rounded-4" name="cant" required>
+                            <label id="cantlbl" for="cant">Cantidad</label>
                         </div>
                         </form>
                         <a id="addkrtconfa" href="javascript:toKart()" >

@@ -114,7 +114,14 @@ function logoutProfile(){
     updateProfileNav();
     bootstrap.Modal.getOrCreateInstance(document.getElementById("profileModal")).hide();
 }
-document.addEventListener("DOMContentLoaded", updateProfileNav);
+document.addEventListener("DOMContentLoaded", () => {
+    updateProfileNav();
+    // Auto-select presentacion when only one option exists
+    const presbtn = document.getElementById("presbtn");
+    if(presbtn && parseInt(presbtn.dataset['opts']) === 1){
+        presentacionSel(0);
+    }
+});
 
 //Variables de seleccion
 if(document.getElementById("prod-title") != null){
@@ -181,35 +188,43 @@ function gustoSel(elem){
 
 }
 
-//Selecciona la presentacion del producto
+//Selecciona la presentacion del producto (legacy, kept for clearsel compatibility)
 function presentacionSel(j){
-    bntpres = document.getElementById("presbtn")
-    for(let i=0;i<parseInt(bntpres.dataset['opts']);i++){
-        document.getElementById("pres-opt-"+i).classList.remove("active")
-    }
     e = document.getElementById("pres-opt-"+j)
-    e.classList.add("active")
-    bntpres.textContent = e.textContent
     presentacion = e.dataset['nump']
+}
+
+//Pill button selection
+function presPillSel(btn, j){
+    document.querySelectorAll('.pres-pill').forEach(b => {
+        b.classList.remove('active');
+        b.style.cssText = '';
+    });
+    btn.classList.add('active');
+    btn.style.cssText = 'background-color:#c0392b !important;color:#fff !important;border-color:#c0392b !important;';
+    presentacion = btn.dataset['nump'];
 }
 
 //Limpia la seleccion actual
 function clearsel(){
     document.getElementById("cant").value = ""
-    bntpres = document.getElementById("presbtn")
-    for(let i=0;i<parseInt(bntpres.dataset['opts']);i++){
-        document.getElementById("pres-opt-"+i).classList.remove("active")
+    const opts = parseInt(document.getElementById("presbtn").dataset['opts']);
+    if(opts > 1){
+        document.querySelectorAll('.pres-pill').forEach(b => {
+            b.classList.remove('active');
+            b.style.cssText = '';
+        });
+        presentacion = null;
     }
-    document.getElementById("presbtn").textContent = "Presentación"
-    presentacion = null //Docena, unidad...
+    // single-option products keep presentacion pre-set
 
     for(key in customizations){
         var children = document.getElementById(key).children
         for (let i = 0; i < children.length; i++) {
-            remstyle(children[i])        
+            remstyle(children[i])
         }
     }
-    customizations= {}; //Base, topping...
+    customizations= {};
 }
 
 //Modal para agregar la selección al carrito.
