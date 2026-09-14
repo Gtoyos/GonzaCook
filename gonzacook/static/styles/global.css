@@ -111,6 +111,14 @@ body {
     border-color: black !important;
     margin: 0.1rem 0.1rem 0.1rem 0.5rem;
 }
+#profileNavLink {
+    background-color: #F5F2EE !important;
+    color: #1a1a1a !important;
+    border-color: #ccc !important;
+}
+#profileNavLink:hover {
+    background-color: #e8e4df !important;
+}
 
 @media (min-width: 1px) and (max-width: 800px){
     .card-columns {
