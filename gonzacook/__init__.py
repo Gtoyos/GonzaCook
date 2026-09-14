@@ -40,10 +40,8 @@ def _is_locked_out(ip):
 
 
 def _load_prices():
-    if os.path.exists(PRICES_FILE):
-        with open(PRICES_FILE, encoding='utf-8') as f:
-            return json.load(f)
-    return {}
+    with open(PRICES_FILE, encoding='utf-8') as f:
+        return json.load(f)
 
 
 def _save_prices(prices):
@@ -256,13 +254,7 @@ def chef_update_price():
 
     prices = _load_prices()
     if code not in prices:
-        # Seed from current in-memory prices
-        product = next((p for p in prod if p.code == code), None)
-        if product and hasattr(product, 'precio'):
-            prices[code] = {str(k): v for k, v in product.precio.items()}
-        else:
-            prices[code] = {}
-
+        prices[code] = {}
     prices[code][str(qty)] = price
     _save_prices(prices)
     _apply_prices()
