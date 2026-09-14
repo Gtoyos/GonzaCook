@@ -189,6 +189,29 @@
         </div>
 
         <!--MODAL PERFIL-->
+        <!-- ORDER DETAIL MODAL -->
+        <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="orderDetailTitle" class="mb-0"></h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-muted small mb-3" id="orderDetailDate"></p>
+                        <table class="table table-sm">
+                            <thead><tr><th>Producto</th><th>Cant.</th></tr></thead>
+                            <tbody id="orderDetailBody"></tbody>
+                        </table>
+                        <p class="fw-bold mt-2" id="orderDetailTotal"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="bootstrap.Modal.getOrCreateInstance(document.getElementById('orderDetailModal')).hide(); showProfileModal()">← Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="modal fade" id="profileModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

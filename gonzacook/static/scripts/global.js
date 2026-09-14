@@ -20,6 +20,43 @@ function addOrderToHistory(order){
     h.unshift(order);
     localStorage.setItem(orderHistoryKey, JSON.stringify(h));
 }
+function calcOrderTotal(items){
+    let total = 0;
+    for(const item of items){
+        if(!item.prixes) continue;
+        const cantidad = parseInt(item.cantidad) * parseInt(item.presentacion);
+        const pricekeys = Object.keys(item.prixes).map(Number).sort((a,b) => b-a);
+        let cr = cantidad;
+        while(cr > 0){
+            for(const p of pricekeys){
+                total += Math.trunc(cr/p) * item.prixes[p];
+                cr = cr % p;
+            }
+        }
+    }
+    return total;
+}
+function showOrderDetail(orderId){
+    const history = getOrderHistory();
+    const o = history.find(x => x.id === orderId);
+    if(!o) return;
+    const items = o.items || [];
+    const total = calcOrderTotal(items);
+    let rows = items.map(item => {
+        const cantidad = parseInt(item.cantidad) * parseInt(item.presentacion);
+        const opts = Object.entries(item)
+            .filter(([k]) => !['ts','presentacion','cantidad','prixes'].includes(k))
+            .map(([k,v]) => `<span class="text-muted">${k.replaceAll('_',' ')}: </span>${String(v).replaceAll('_',' ')}`)
+            .join('<br>');
+        return `<tr><td>${opts}</td><td>${cantidad} u.</td></tr>`;
+    }).join('');
+    document.getElementById('orderDetailTitle').textContent = `Pedido #${orderId}`;
+    document.getElementById('orderDetailDate').textContent = new Date(o.timestamp).toLocaleString('es-UY');
+    document.getElementById('orderDetailBody').innerHTML = rows;
+    document.getElementById('orderDetailTotal').textContent = total > 0 ? `Total: $${total}` : '';
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('profileModal')).hide();
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('orderDetailModal')).show();
+}
 function updateProfileNav(){
     const p = getProfile();
     const text = p ? "Hola, " + p.name : "Iniciar sesión";
@@ -40,12 +77,14 @@ function showProfileModal(){
         if(history.length === 0){
             histEl.innerHTML = "<p class='text-muted small'>No tenés pedidos registrados.</p>";
         } else {
-            histEl.innerHTML = history.map(o =>
-                `<div class="border rounded p-2 mb-2 small">
-                    <b>Pedido #${o.id}</b> — ${new Date(o.timestamp).toLocaleDateString('es-UY')}
-                    <div class="text-muted">${o.summary}</div>
-                </div>`
-            ).join("");
+            histEl.innerHTML = history.map(o => {
+                const total = calcOrderTotal(o.items || []);
+                const totalStr = total > 0 ? ` — $${total}` : '';
+                return `<div class="border rounded p-2 mb-2 small d-flex justify-content-between align-items-center" style="cursor:pointer" onclick="showOrderDetail(${o.id})">
+                    <span><b>Pedido #${o.id}</b> — ${new Date(o.timestamp).toLocaleDateString('es-UY')}${totalStr}</span>
+                    <span class="text-muted" style="font-size:.8rem">Ver detalle &rsaquo;</span>
+                </div>`;
+            }).join("");
         }
     } else {
         document.getElementById("profileFormSection").style.display = "block";
@@ -290,8 +329,7 @@ async function buyKart(dt=0){
             body: JSON.stringify({items: itemsToSend, customer_name: profile.name, customer_phone: profile.phone})
         });
         const result = await resp.json();
-        const summary = itemsToSend.map(i => i.Nombre || "Producto").join(", ");
-        addOrderToHistory({id: result.order_id, timestamp: new Date().toISOString(), summary});
+        addOrderToHistory({id: result.order_id, timestamp: new Date().toISOString(), items: itemsToSend});
         document.getElementById("tytitle").textContent = "Pedido recibido ✅"
         document.getElementById("tymsg").textContent = "¡Tu pedido #"+result.order_id+" fue recibido! Te responderemos a la brevedad."
     } catch(e) {
