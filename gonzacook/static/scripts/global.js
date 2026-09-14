@@ -94,6 +94,8 @@ function showProfileModal(){
     }
     bootstrap.Modal.getOrCreateInstance(document.getElementById("profileModal")).show();
 }
+let _pendingKartModal = false;
+
 function saveProfile(){
     const name = document.getElementById("profileNameInput").value.trim();
     const phone = document.getElementById("profilePhoneInput").value.trim();
@@ -101,6 +103,10 @@ function saveProfile(){
     setProfile(name, phone);
     updateProfileNav();
     bootstrap.Modal.getOrCreateInstance(document.getElementById("profileModal")).hide();
+    if(_pendingKartModal){
+        _pendingKartModal = false;
+        setTimeout(() => seeKart(0), 400);
+    }
 }
 function editProfile(){
     const p = getProfile();
@@ -327,6 +333,7 @@ async function buyKart(dt=0){
     const profile = getProfile();
     if(!profile){
         if(kartmodal) kartmodal.hide();
+        _pendingKartModal = true;
         showProfileModal();
         return;
     }
