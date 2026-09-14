@@ -29,7 +29,8 @@ body {
 
 #main-banner {
     margin: 0.5rem 0.5rem 2rem 0.5rem;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
+    overflow: hidden;
     font-family: 'Fredoka One','Helvetica';
     background-size: cover;
     text-align: center;
