@@ -11,6 +11,10 @@ body {
     height: 50px;
     width: auto;
 }
+#footerg img {
+    height: 40px;
+    width: auto;
+}
 .header-opt {
     color: black !important;
 }
