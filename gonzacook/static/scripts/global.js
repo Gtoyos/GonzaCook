@@ -59,11 +59,16 @@ function showOrderDetail(orderId){
 }
 function updateProfileNav(){
     const p = getProfile();
-    const text = p ? "Hola, " + p.name : "Iniciar sesión";
-    ["profileNavLink","profileNavLinkMobile"].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.textContent = text;
-    });
+    const navLink = document.getElementById("profileNavLink");
+    const navMobile = document.getElementById("profileNavLinkMobile");
+    if(p){
+        const first = p.name.split(" ")[0];
+        if(navLink) navLink.innerHTML = '<i class="fas fa-user-circle"></i> ' + first;
+        if(navMobile) navMobile.innerHTML = '<i class="fas fa-user-circle"></i> ' + first;
+    } else {
+        if(navLink) navLink.innerHTML = '<i class="fas fa-user-circle"></i> Iniciar sesión';
+        if(navMobile) navMobile.textContent = "Iniciar sesión";
+    }
 }
 function showProfileModal(){
     const p = getProfile();
