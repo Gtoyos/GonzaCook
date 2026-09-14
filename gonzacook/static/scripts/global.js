@@ -23,7 +23,7 @@ function addOrderToHistory(order){
 function updateProfileNav(){
     const p = getProfile();
     const el = document.getElementById("profileNavLink");
-    if(el) el.textContent = p ? "👤 " + p.name : "👤 Perfil";
+    if(el) el.textContent = p ? "Hola, " + p.name : "Iniciar sesión";
 }
 function showProfileModal(){
     const p = getProfile();
