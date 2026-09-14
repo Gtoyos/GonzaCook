@@ -177,16 +177,31 @@
               <td>
                 <input class="price-input" type="number" min="0" step="0.5"
                        id="price-{{ p.code }}-{{ qty }}"
-                       value="{{ price }}"
-                       data-code="{{ p.code }}"
-                       data-qty="{{ qty }}">
+                       value="{{ price }}">
               </td>
               <td>
-                <button class="btn-save" onclick="savePrice('{{ p.code }}', {{ qty }})">Guardar</button>
+                <button class="btn-save" onclick="savePrice('{{ p.code }}', '{{ qty }}', false)">Guardar</button>
                 <span class="save-status" id="status-{{ p.code }}-{{ qty }}"></span>
               </td>
             </tr>
             {% endfor %}
+            {% if p.custom_extra %}
+            {% for option, extra in p.custom_extra.items() %}
+            <tr>
+              <td>{{ p.nombre }} <span style="color:#888;font-size:.8rem">(extra)</span></td>
+              <td>+ {{ option }}</td>
+              <td>
+                <input class="price-input" type="number" min="0" step="0.5"
+                       id="price-{{ p.code }}_extras-{{ option }}"
+                       value="{{ extra }}">
+              </td>
+              <td>
+                <button class="btn-save" onclick="savePrice('{{ p.code }}_extras', '{{ option }}', true)">Guardar</button>
+                <span class="save-status" id="status-{{ p.code }}_extras-{{ option }}"></span>
+              </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
           {% endfor %}
         </tbody>
       </table>
@@ -220,7 +235,7 @@
         .catch(() => showToast('Error de red', 'err'));
     }
 
-    function savePrice(code, qty) {
+    function savePrice(code, qty, is_extra) {
       const input = document.getElementById('price-' + code + '-' + qty);
       const statusEl = document.getElementById('status-' + code + '-' + qty);
       const price = parseFloat(input.value);
@@ -232,14 +247,14 @@
       fetch('/chef/prices/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code, qty, price }),
+        body: JSON.stringify({ code, qty, price, is_extra }),
       })
         .then(r => r.json())
         .then(data => {
           if (data.status === 'ok') {
             statusEl.textContent = '✓ Guardado';
             statusEl.className = 'save-status ok';
-            showToast('Precio actualizado: ' + code + ' x' + qty, 'ok');
+            showToast('Precio actualizado', 'ok');
             setTimeout(() => { statusEl.textContent = ''; }, 3000);
           } else {
             statusEl.textContent = 'Error';

@@ -8,7 +8,9 @@
   "pdu": {"1": 450},
   "sco": {"12": 350},
   "bun": {"1": 420},
+  "bun_extras": {"Nueces": 30, "Choco": 30},
   "cak": {"1": 650},
+  "cak_extras": {"Nueces": 30, "Almendras": 30, "Clásico": 0},
   "alfm": {"6": 200, "12": 320},
   "gmac": {"12": 150}
 }

@@ -55,6 +55,9 @@ def _apply_prices():
     for p in prod:
         if p.code in prices and hasattr(p, 'precio'):
             p.precio = {int(k): v for k, v in prices[p.code].items()}
+        extras_key = p.code + '_extras'
+        if extras_key in prices and hasattr(p, 'custom_extra'):
+            p.custom_extra = dict(prices[extras_key])
 
 
 _apply_prices()
@@ -236,21 +239,27 @@ def chef_delete_order(order_id):
 @login_required
 def chef_update_price():
     data = request.get_json(force=True)
-    code = data.get('code')
-    qty = data.get('qty')
+    code = data.get('code')       # product code or "bun_extras"
+    qty = data.get('qty')         # quantity (int) or option name (str) for extras
     price = data.get('price')
+    is_extra = data.get('is_extra', False)
 
     if not code or qty is None or price is None:
         return jsonify({'status': 'error', 'msg': 'Missing fields'}), 400
 
     try:
-        qty = int(qty)
         price = float(price)
     except (ValueError, TypeError):
-        return jsonify({'status': 'error', 'msg': 'Invalid values'}), 400
+        return jsonify({'status': 'error', 'msg': 'Invalid price'}), 400
 
     if price < 0:
         return jsonify({'status': 'error', 'msg': 'Price must be positive'}), 400
+
+    if not is_extra:
+        try:
+            qty = int(qty)
+        except (ValueError, TypeError):
+            return jsonify({'status': 'error', 'msg': 'Invalid qty'}), 400
 
     prices = _load_prices()
     if code not in prices:
