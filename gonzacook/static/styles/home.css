@@ -1,11 +1,12 @@
 .cursive-h1 {
     text-align: center;
-    font-family: 'Tangerine','Lucida Handwriting',cursive !important;
+    font-family: 'Fredoka One', 'Helvetica', sans-serif !important;
     margin-bottom: 2rem;
     font-size: 5em;
     font-weight: bold;
 }
 .cursive-h1-txt {
+    font-family: 'Fredoka One', 'Helvetica', sans-serif;
     font-size: 5rem;
     font-weight: bold;
 }
