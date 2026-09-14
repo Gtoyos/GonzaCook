@@ -21,6 +21,11 @@
                     <a class="header-opt nav-link" href="{{g.rootpath}}/#sobremi">Sobre mi</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="profileNavLink" class="header-opt nav-link" href="javascript:showProfileModal()">👤 Perfil</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -174,6 +179,41 @@
                         <hr class="my-6">
                         <div>
                             <i>Al confirmar, el pedido se enviará directamente a GonzaCook.</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--MODAL PERFIL-->
+        <div class="modal fade" id="profileModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="mb-0">Mi Perfil 👤</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="profileFormSection">
+                            <p>Ingresá tus datos de contacto para poder hacer pedidos.</p>
+                            <div class="form-floating mb-2">
+                                <input id="profileNameInput" type="text" class="form-control rounded-4" placeholder="Nombre">
+                                <label for="profileNameInput">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input id="profilePhoneInput" type="tel" class="form-control rounded-4" placeholder="Teléfono">
+                                <label for="profilePhoneInput">Teléfono / WhatsApp</label>
+                            </div>
+                            <button onclick="saveProfile()" class="btn-sabores btn btn-primary">Guardar</button>
+                        </div>
+                        <div id="profileViewSection" style="display:none">
+                            <p class="mb-1"><b>Nombre:</b> <span id="profileViewName"></span></p>
+                            <p class="mb-3"><b>Teléfono:</b> <span id="profileViewPhone"></span></p>
+                            <button onclick="editProfile()" class="btn btn-sm btn-outline-secondary me-2">Editar datos</button>
+                            <button onclick="logoutProfile()" class="btn btn-sm btn-outline-danger">Cerrar sesión</button>
+                            <hr>
+                            <h6>Mis pedidos</h6>
+                            <div id="profileOrderHistory"></div>
                         </div>
                     </div>
                 </div>
