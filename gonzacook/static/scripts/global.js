@@ -61,7 +61,7 @@ function saveProfile(){
     if(!name || !phone) return;
     setProfile(name, phone);
     updateProfileNav();
-    showProfileModal();
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("profileModal")).hide();
 }
 function editProfile(){
     const p = getProfile();
@@ -260,6 +260,7 @@ function toKart(mode=0){
 async function buyKart(dt=0){
     const profile = getProfile();
     if(!profile){
+        if(kartmodal) kartmodal.hide();
         showProfileModal();
         return;
     }
