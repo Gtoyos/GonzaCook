@@ -45,10 +45,10 @@
 <div class="box-p" id="x" data-prix="{{p.precio}}"> 
     {% for k,t in p.precio.items() %}
     <p class="prix-p">
-    {% if k==1 %}La unidad: ${{t}},00{% endif %}
-    {% if k==6 %}Media docena: ${{t}},00{% endif %}
-    {% if k==12 %}Una docena: ${{t}},00{% endif %}
-    {% if not (k==1 or k==6 or k==12)%}{{k}} unidades: ${{t}},00{% endif %}
+    {% if k==1 %}La unidad: ${{t|int}}{% endif %}
+    {% if k==6 %}Media docena: ${{t|int}}{% endif %}
+    {% if k==12 %}Una docena: ${{t|int}}{% endif %}
+    {% if not (k==1 or k==6 or k==12)%}{{k}} unidades: ${{t|int}}{% endif %}
     </p>
     {% endfor %}
 </div>
