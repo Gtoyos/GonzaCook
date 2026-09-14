@@ -81,7 +81,7 @@ body {
 }
 .cursive-h1-txt {
     font-family: 'Fredoka One', 'Helvetica', sans-serif;
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 700;
     color: #1a1a1a;
     margin: 3rem 0 1.5rem;
