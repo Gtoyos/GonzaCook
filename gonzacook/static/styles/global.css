@@ -40,14 +40,18 @@ body {
     background-size: cover;
     background-position: center;
     text-align: center;
-    margin-bottom: 2rem;
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#sobremi {
-    text-align: center;
-    margin-bottom: 2rem;
-    border-style: solid hidden hidden hidden;
-    border-width: 0.2rem;
-    padding-top: 1rem;
+#main-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
 }
 #banner-h1, #banner-h2 {
     position: relative;
@@ -76,7 +80,7 @@ body {
     margin-bottom: 1rem;
 }
 .cursive-h1-txt {
-    font-family: 'Tangerine', 'Lucida Handwriting', cursive;
+    font-family: 'Fredoka One', 'Helvetica', sans-serif;
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 700;
     color: #1a1a1a;
