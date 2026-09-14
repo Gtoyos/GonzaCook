@@ -203,6 +203,12 @@ function presPillSel(btn, j){
     btn.classList.add('active');
     btn.style.cssText = 'background-color:#c0392b !important;color:#fff !important;border-color:#c0392b !important;';
     presentacion = btn.dataset['nump'];
+    // Update quantity label to reflect what the user is counting
+    const n = parseInt(presentacion);
+    const labelMap = {1: 'unidades', 5: 'grupos de 5', 6: 'medias docenas', 12: 'docenas'};
+    const unit = labelMap[n] || ('grupos de ' + n);
+    const lbl = document.getElementById('cantlbl');
+    if(lbl) lbl.textContent = '¿Cuántas ' + unit + '?';
 }
 
 //Limpia la seleccion actual
@@ -215,6 +221,8 @@ function clearsel(){
             b.style.cssText = '';
         });
         presentacion = null;
+        const lbl = document.getElementById('cantlbl');
+        if(lbl) lbl.textContent = 'Cantidad';
     }
     // single-option products keep presentacion pre-set
 
