@@ -7,6 +7,10 @@ body {
     border-style: hidden hidden solid hidden;
     border-width: 0.2rem;
 }
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+}
 .header-opt {
     color: black !important;
 }
