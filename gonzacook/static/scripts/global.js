@@ -22,8 +22,11 @@ function addOrderToHistory(order){
 }
 function updateProfileNav(){
     const p = getProfile();
-    const el = document.getElementById("profileNavLink");
-    if(el) el.textContent = p ? "Hola, " + p.name : "Iniciar sesión";
+    const text = p ? "Hola, " + p.name : "Iniciar sesión";
+    ["profileNavLink","profileNavLinkMobile"].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.textContent = text;
+    });
 }
 function showProfileModal(){
     const p = getProfile();
